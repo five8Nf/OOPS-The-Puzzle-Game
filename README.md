@@ -1,5 +1,6 @@
 This is a test based "RPG" game where you are a random person running around the world doing strange things.   
 player has 5 lives and 100 hp  
+player will pick between a few weapons: Sword, Bow, Stick or The Quasirhombicosidodecahedron  
 The player would wake up in a cave and can go left or right  
 right: pit of doom/portal  
 if entered pit of doom the player will die and lose 1 life  
@@ -10,7 +11,6 @@ reward: a Wammer(weird hammer can hammer special tiles and wushrooms)
 if you look around, you will get a wushroom(weird mushroom. Will heal you to full health but will remove an finger nail, finger or hand. it will rot)  
 player can now pass through the pillar puzzle without doing anything  
 now player can enter pit of doom  
-player will pick between a few weapons: Sword, Bow, Stick or The Quasirhombicosidodecahedron  
 player will see a three by three grid labeled a-b, 1-3.   
 player will select one tile to hit with wammer until they recieve their first weapon piece (handle, curved piece of wood, short branch or dodecahedron)  
 player will fight Lord Dirtinheim(A Lord made of dirt)  
