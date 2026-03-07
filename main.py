@@ -1,7 +1,6 @@
 import os
 from inputimeout import inputimeout, TimeoutOccurred
+from Stages import *
 
 from player import *
 
-def clear_screen() -> None:
-    os.system("cls" if os.name == "nt" else "clear")
