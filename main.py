@@ -4,3 +4,6 @@ from Stages import *
 
 from player import *
 
+intro()
+loading()
+room1()

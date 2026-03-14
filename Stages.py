@@ -1,10 +1,60 @@
 import os
 from time import sleep
 
+from player import *
+
+WEAPONS = {"1":"sword", 
+           "2":"bow", 
+           "3":"staff", 
+           "4":"quasirhombicosidodecahedron"}
+
+player = None
+
 def clear_screen() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
+def health():
+    global player
+    hp_percent = player.get_hp_percentage()
+    bar_length = 20
+    filled_length = int(bar_length * hp_percent / 100)
+    bar = "█" * filled_length + "░" * (bar_length - filled_length)
+    print(f"""Lives: {player.lives} {"█ "*player.lives}
+{player.name} HP: {player.hp:.1f}/{player.max_hp:.1f} ({hp_percent:.1f}%) [{bar}]""")
+
+def loading():
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world.")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world..")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world...")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world..")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world.")
+    sleep(1)
+    clear_screen()
+    print("The Puzzle Game")
+    print("Loading world")
+    sleep(1)
+    clear_screen()
+
 def intro():
+    global player
     clear_screen()
     print("""/========================================================\\
 ||__        __   _                            _         ||
@@ -47,39 +97,56 @@ def intro():
     sleep(10)
     clear_screen()
     print("The Puzzle Game")
+    name = input("Input 'a name': ")
+    if name.lower() == "a name":
+        name = input("Good Job! now please input a name for your character: ")
+        player = Player(name, True)
+    else:
+        player = Player(name)
+    weapon = input("Please input your weapon of choice(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron):")
+    while not weapon in WEAPONS.keys():
+        weapon = input(f"{weapon} not a valid number. Input your choice:(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron):")
+    clear_screen()
+    print("The Puzzle Game")
+    print(f"You have chosen: {WEAPONS[weapon]}")
+    sleep(5)
+    loading()
 
-def Room1():
-    pass
+def room1():
+    global player
+    print("The Puzzle Game")
+    health()
+    print("""You wake up in a dark gloomy room. 
+The damp walls glisten from the light of the small opening above you.
+You tried to remember what had happened but you can't remember anything but this cave. 
+looking around, you see two pathways. One on the left and one on the right. """)
 
 def right():
-    pass
+    global player
 
 def pillar_puzzle():
-    pass
+    global player
 
 def Whammer():
-    pass
+    global player
 
-def Left():
-    pass
+def left():
+    global player
 
 def portal():
-    pass
+    global player
 
 def pit_of_doom():
-    pass
+    global player
 
 def colosseum():
-    pass
+    global player
 
 def dirtingheim_appearence():
-    pass
+    global player
 
 def workshop():
-    pass
+    global player
 
 def hallway():
-    pass
-
-
-intro()
+    global player
