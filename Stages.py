@@ -161,12 +161,14 @@ The sign reads:
 //===================================\\\\
 ||You have reached the Pillar Puzzle!||
 ||You need to get past the pillars!  ||
-||Warning Pillars are Poisonous,     ||
-||Spiky,Deadly, Unbreakable, Venemous||
-||Toxic, Acid Proof and covered with ||
-||Acids such as HSbF2, HBR, HF, HI,  ||
-||HCIO4, H2SO4, HNO3, CISO3H, HCI,   ||
-||HBr, HCN and HCF3SO3.              ||
+||[!!WARNING!!] Pillars are          ||
+||Poisonous, Spiky. Deadly.          ||
+||Unbreakable. Venomous              ||
+||Toxic. Acid-proof. Covered with    ||
+||acids including but not limited to ||
+||HSbF2, HBR, HF, HI, HCIO4, H2SO4,  ||
+||HNO3, CISO3H, HCI, HBr, HCN and    ||
+||HCF3SO3.     Writen by XD & >:3    ||
 \\\\===================================//
  You look ahead serching for the pillars but you se nothing but pich black drarkness.""")
         ans = input("Input what you want to do: ").lower()
@@ -191,7 +193,23 @@ It was a Whammer. You write down in your journal.
 ║                Whammer                ║
 ║This peculiar object looks like a      ║
 ║shriviled mushroom and a hammer        ║
-║combined.
+║combined. It does not have any effect  ║
+║on anything however i did manage to    ║
+║find a weird looking mushroom I dubed  ║
+║"Wushroom" that was squashed into a    ║
+║disgustingly sticky goopy gelatinous   ║
+║mess. I haven't tried them yet so I    ║
+║write them down later. On the back of  ║
+║the sign, I found text saying that this║
+║"Mystical" hammer holds great power and║
+║can be used to smash Neyon Pink Tiles. ║
+║It also said that the Neyon Pink Tiles ║
+║were in memorium to the first and last ║
+║Creator of Fungranium, Neyon Pink      ║
+║Fungus. I suspect that this Fungranium ║
+║Is a type of Stickman like myself who  ║
+║Worship Mushrooms or maybe even are    ║
+║Mushrooms I don't know.
 ╚═══════════════════════════════════════╝""")
 
 
