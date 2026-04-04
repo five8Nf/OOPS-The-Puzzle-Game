@@ -6,10 +6,13 @@ from player import *
 
 intro()
 loading()
-next = room1()
-while next != "left" and next != "right":
-    next = input("Do you want to go left or right? ")
-if next == "left":
+to = room1()
+while to != "left" and to != "right":
+    input(f"{to} is not a valid input")
+    clear_screen()
+    to = input("Do you want to go left or right? ")
+if to == "left":
     left()
-elif next == "right":
+elif to == "right":
     pillar_puzzle()
+    Whammer()

@@ -17,10 +17,10 @@ class Player():
     def weapon_type(self, weapon_type):
         self.weapon = weapon_type
     
-    def add_item(self, item, new_attacks = None):
+    def add_item(self, item, quantity, new_attacks = None):
         if item in self.inventory.keys():
-            self.inventory[item] += 1
+            self.inventory[item] += quantity
         else:
-            self.inventory[item] = 1
+            self.inventory[item] = quantity
         if new_attacks != None:
-            self.attacks += new_attacks
+            self.attacks = self.attacks | new_attacks
