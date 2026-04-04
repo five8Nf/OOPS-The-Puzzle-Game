@@ -298,9 +298,28 @@ def left():
 
 def portal():
     global player
+    new_screen()
+    if not "Whammer" in player.inventory.keys():
+        print("You enter the portal and in a flash of purple appear in the right hallway. ")
+        pillar_puzzle()
+        Whammer()
+    else:
+        print("You jumped in, was instantly engulfed in a sea of scales and died. ")
+        input("Next...")
+        player.lives -= 1
+        left()
 
 def pit_of_doom():
     global player
+    new_screen()
+    if not "Whammer" in player.inventory.keys():
+        print("""You jumped into THE PIT OF DOOM and your screams echo through the walls of the temple.
+You died to an unknown force. """)
+        input("Next...")
+        player.lives -= 1
+    else:
+        print("""You fall down THE PIT OF DOOM and land on a mushroom. """)
+        colosseum()
 
 def colosseum():
     global player
