@@ -140,7 +140,16 @@ def room1():
 The damp walls glisten from the light of the small opening above you.
 You tried to remember what had happened but you can't remember anything but this cave. 
 looking around, you see two pathways. One on the left and one on the right. """)
-    return input("Do you want to go left or right? ").lower()
+    to = input("Do you want to go left or right? ").lower()
+    while to != "left" and to != "right":
+        print(f"{to} is not a valid input")
+        input("Next...")
+        clear_screen()
+        to = input("Do you want to go left or right? ")
+    if to == "left":
+        left()
+    elif to == "right":
+        pillar_puzzle()
 
 def pillar_puzzle():
     global player
@@ -181,6 +190,7 @@ The sign reads:
 \\\\===================================//
  You look ahead serching for the pillars but you see nothing but pich black drarkness.""")
         ans = input("Input what you want to do: ").lower()
+    Whammer()
 
 def Whammer():
     global player
@@ -276,6 +286,7 @@ They read: "This room is the path on the left.
 You cannot go back as there is a wall of impenetrable scales. 
 Nobody but someone who can walk through walls can break through. " """)
     input("Next...")
+    left()
 
 
 def left():
@@ -294,7 +305,16 @@ def left():
 || \\___/|_|   |___/ \\___/ \\___/|_|  |_| (_)| |||
 ||                                        /_/ ||
 \\==============================================/""")
-    return input("Do you want to go into the portal or THE PIT OF DOOM :): ")
+    to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
+    while not "portal" in to and not "pit of doom" in to:
+        print("that is not a valid option")
+        input("Next...")
+        new_screen()
+        to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
+    if "portal" in to:
+        portal()
+    elif "pit of doom" in to:
+        pit_of_doom()
 
 def portal():
     global player
@@ -317,6 +337,7 @@ def pit_of_doom():
 You died to an unknown force. """)
         input("Next...")
         player.lives -= 1
+        room1()
     else:
         print("""You fall down THE PIT OF DOOM and land on a mushroom. """)
         colosseum()
