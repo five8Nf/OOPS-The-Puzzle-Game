@@ -1,12 +1,13 @@
 import os
 from time import sleep
+from random import randint
 
 from player import *
 
-WEAPONS = {"1":"sword", 
-           "2":"bow", 
-           "3":"staff", 
-           "4":"quasirhombicosidodecahedron"}
+WEAPONS = {"1":"Sword", 
+           "2":"Bow", 
+           "3":"Staff", 
+           "4":"Quasirhombicosidodecahedron"}
 
 player = None
 
@@ -124,9 +125,10 @@ def intro():
         player = Player(name, True)
     else:
         player = Player(name)
-    weapon = input("Please input your weapon of choice(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron): ")
+    weapon = input("Please input the number of your weapon of choice(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron): ")
     while not weapon in WEAPONS.keys():
         weapon = input(f"{weapon} not a valid number. Input your choice:(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron):")
+    player.weapon_choice(WEAPONS[weapon])
     clear_screen()
     print("The Puzzle Game")
     print(f"You have chosen: {WEAPONS[weapon]}")
@@ -149,12 +151,13 @@ looking around, you see two pathways. One on the left and one on the right. """)
     if to == "left":
         left()
     elif to == "right":
+        new_screen()
+        print("You walk right and ", end= "")
         pillar_puzzle()
 
 def pillar_puzzle():
     global player
-    new_screen()
-    print("""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
+    print("""A neyon green sign appears beside you as the door behind you slams shut. 
 The sign reads: 
 //===================================\\\\
 ||You have reached the Pillar Puzzle!||
@@ -321,8 +324,9 @@ def portal():
     new_screen()
     if not "Whammer" in player.inventory.keys():
         print("You enter the portal and in a flash of purple appear in the right hallway. ")
+        input("Next...")
+        new_screen()
         pillar_puzzle()
-        Whammer()
     else:
         print("You jumped in, was instantly engulfed in a sea of scales and died. ")
         input("Next...")
@@ -340,13 +344,85 @@ You died to an unknown force. """)
         room1()
     else:
         print("""You fall down THE PIT OF DOOM and land on a mushroom. """)
+        input("Next...")
         colosseum()
 
 def colosseum():
     global player
-
+    new_screen()
+    print("""You look up and see large pillars in front of you. 
+They form a loop ringing around you. 
+You walk towards them and notice that they are made of dirt. 
+An erie neyon pink glow appears in the distance. 
+You walk towards it and climb up a small hill and see that the structure you were in was a colosseum.
+Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. """)
+    input("Next...")
+    new_screen()
+    print("The top of the grid is labled 1, 2, 3 and the bottom A, B, C. ")
+    number = randint(1, 3)
+    if number == 1:
+        ans = "A"
+    elif number == 2:
+        ans = "B"
+    else:
+        ans = "C"
+    ans += str(randint(1, 3))
+    accepted = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+    while not selected in accepted:
+        selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+    accepted.remove(selected)
+    while selected != ans:
+        if randint(1, 3) != 1:
+            print("You got some Stone Berrys.")
+            if not "Stone Berry" in player.inventory.keys():
+                print(f"""╔═══════════════════════════════════════╗
+║            Stone Berry                ║
+║These peculiar berrys look exactly like║
+║stone. They feel like stone. They      ║
+║taste... *Insert puking noises* like   ║
+║stone. I don't know why I tried it but ║
+║I just accidentaly kicked a boulder 100║
+║times my size into rubble so it seems  ║
+║to make me stronger. But now my foot   ║
+║hurts and my body is disgusted.        ║
+║                                       ║
+║                                       ║
+║Son of a fish! I just stubbed my toe on║
+║a small rock. Needless to say, I am not║
+║strong whatsoever. I know I should     ║
+║be Whammering the other tiles but oh my║
+║leg hurts!                             ║
+║                                       ║
+║                                       ║
+║                                       ║
+║Strength +5                            ║
+╚═══════════════════════════════════════╝""")
+            player.add_item("Stone Berry", randint(1, 2))
+        else:
+            print("You got some Wushrooms. ")
+            player.add_item("Wushroom", randint(1, 5))
+        input("Next...")
+        new_screen()
+        selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+        while not selected in accepted:
+            selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+        accepted.remove(selected)
+    print(f"You got a {player.small_weapon}")
+    player.add_item(player.small_weapon, 1, SMALL[player.small_weapon])
+    input("next...")
+    dirtingheim_appearence()
+    
 def dirtingheim_appearence():
     global player
+    new_screen()
+    print("Suddenly, the floor beneath you burst open and you slide down in to the colosseum. ")
+    input("Next...")
+    new_screen()
+    print("""A pair of larg arms start to grow. 
+Dirt around you start flying up towards the arms, forming a dirtstorm. 
+You squint your eyes to protect them from the flying debris.
+But suddenly it stops. """)
 
 def workshop():
     global player

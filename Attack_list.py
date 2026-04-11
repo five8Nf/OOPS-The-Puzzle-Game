@@ -18,9 +18,12 @@ THROW = Attack("Throw", ["threw",  "their", "**", "at"], 15, 20, 0.4)
 POMMEL = Attack("Pommel Hit", ["hit", "&&", "with", "pommel"], 10, 17, 0.75)
 WHACK = Attack("Whack", ["whacked"], 10, 17, 0.75)
 SWING = Attack("Swing", ["swung", "short", "branch", "at"], 10, 17, 0.75)
-ROLL = Attack("Roll D12", ["rolled", "a", "::"],8 ,20 , 0.6)
+ROLL = Attack("Roll D12", ["rolled", "a", "::"],8 ,20 , "X")
 
-SMALL = {THROW, POMMEL, WHACK, SWING, ROLL}
+SMALL = {"Handle" : {THROW, POMMEL}, 
+         "Thin Stick" : {THROW, WHACK}, 
+         "Short Stick" : {THROW, SWING}, 
+         "Dodecahedron" : {THROW, ROLL}}
 
 # SLASH = Attack("Slash", ["slashed", "at"], 20, 30, 0.6)
 # STAB = Attack("Stab", ["stabbed"], 20, 25, 0.7)

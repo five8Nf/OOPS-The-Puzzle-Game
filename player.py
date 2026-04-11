@@ -1,5 +1,10 @@
 from Attack_list import *
 
+SMALLS = {"Sword" : "Handle", 
+          "Bow" : "Thin Stick", 
+          "Staff" : "Short Stick", 
+          "Quasirhombicosidodecahedron" : "Dodecahedron"}
+
 class Player():
     def __init__(self, name, is_sarcastic = False):
         self.lives = 5
@@ -14,9 +19,10 @@ class Player():
     def get_hp_percentage(self):
         return self.hp / self.max_hp * 100
 
-    def weapon_type(self, weapon_type):
-        self.weapon = weapon_type
-    
+    def weapon_choice(self, weapon_name):
+        self.weapon_type = weapon_name
+        self.small_weapon = SMALLS[weapon_name]
+
     def add_item(self, item, quantity, new_attacks = None):
         if item in self.inventory.keys():
             self.inventory[item] += quantity
