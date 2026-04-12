@@ -174,7 +174,7 @@ The sign reads:
     while not "forward" in ans:
         player.lives -= 1
         new_screen()
-        print("You hit a pillar and was inpailed poisoned, and dissolved by 17 different qualities of the pillars and died. ")
+        print("You hit a pillar and was inpailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
         input("Enter to continue...")
         new_screen()
         print("""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
@@ -419,7 +419,7 @@ def dirtingheim_appearence():
     print("Suddenly, the floor beneath you burst open and you slide down in to the colosseum. ")
     input("Next...")
     new_screen()
-    print("""A pair of larg arms start to grow. 
+    print("""A pair of large arms start to grow. 
 Dirt around you start flying up towards the arms, forming a dirtstorm. 
 You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
