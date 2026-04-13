@@ -423,6 +423,8 @@ def dirtingheim_appearence():
 Dirt around you start flying up towards the arms, forming a dirtstorm. 
 You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
+    input("Next...")
+    
 
 def workshop():
     global player
