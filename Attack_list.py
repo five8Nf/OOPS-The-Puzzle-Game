@@ -39,4 +39,4 @@ SMALL = {"Handle" : {THROW, POMMEL},
 ROCKSLIDE = Attack("Rock Slide", ["Rocks", "fell", "from", "the", "sky"],30 ,35 , 0.1)
 EARTHQUAKE = Attack("Earthquake", ["Caused", "an", "earthquake"], 10, 15, 1)
 
-DIRTINGHEIM1 = {ROCKSLIDE, EARTHQUAKE}
+DIRTINGHEIM = {ROCKSLIDE, EARTHQUAKE}
