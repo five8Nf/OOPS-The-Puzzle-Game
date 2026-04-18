@@ -424,17 +424,6 @@ Dirt around you start flying up towards the arms, forming a dirtstorm.
 You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
     input("Next...")
-    new_screen()
-    print(""" ____  _      _   _             _          _           
-|  _ \\(_)_ __| |_(_)_ __   __ _| |__   ___(_)_ __ ___  
-| | | | | '__| __| | '_ \\ / _` | '_ \\ / _ \\ | '_ ` _ \\ 
-| |_| | | |  | |_| | | | | (_| | | | |  __/ | | | | | |
-|____/|_|_|   \\__|_|_| |_|\\__, |_| |_|\\___|_|_| |_| |_|
-| |__   __ _ ___    __ ___|___/ _____ | | _____ _ __   
-| '_ \\ / _` / __|  / _` \\ \\ /\\ / / _ \\| |/ / _ \\ '_ \\  
-| | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | | 
-|_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_| """)
-    input("Next...")
     
 
 def workshop():
