@@ -1,4 +1,5 @@
 from Attack_list import *
+import os
 
 SMALLS = {"Sword" : "Handle", 
           "Bow" : "Thin Stick", 
@@ -30,3 +31,28 @@ class Player():
             self.inventory[item] = quantity
         if new_attacks != None:
             self.attacks = self.attacks | new_attacks
+    
+    def clear_screen(self) -> None:
+        os.system("cls" if os.name == "nt" else "clear")
+
+    def new_screen(self):
+        self.clear_screen()
+        if self.lives >= 0 and self.hp >= 1:
+            hp_percent = self.get_hp_percentage()
+            bar_length = 20
+            filled_length = int(bar_length * hp_percent / 100)
+            bar = "█" * filled_length + "░" * (bar_length - filled_length)
+            print(f"""The Puzzle Game
+    Lives: {self.lives} {"█ "*self.lives}
+    {self.name} HP: {self.hp:.1f}/{self.max_hp:.1f} ({hp_percent:.1f}%) [{bar}]
+    inventory: {self.inventory}""")
+            print("\n============================================================================================\n")
+        else:
+            print("""╔══════════════════════════════════════╗
+║__   __            ____  _          _ ║
+║\\ \\ / /__  _   _  |  _ \\(_) ___  __| |║
+║ \\ V / _ \\| | | | | | | | |/ _ \\/ _` |║
+║  | | (_) | |_| | | |_| | |  __/ (_| |║
+║  |_|\\___/ \\__,_| |____/|_|\\___|\\__,_|║
+╚══════════════════════════════════════╝""")
+            quit()

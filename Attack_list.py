@@ -11,7 +11,7 @@ SARCASM = Attack("Sarcasm", ["used sarcasm on"], 1, 100, 0.1)
 BASIC = {PUNCH, KICK, SARCASM}
 
 BONK = Attack("Bonk", ["Bonked"], 10, 15, 0.7)
-TOSS = Attack("Toss", ["Tossed", "their", "whammer" "at"], 15, 20, 0.4)
+TOSS = Attack("Toss", ["Tossed", "their", "whammer", "at"], 15, 20, 0.4)
 WHAMMER = {BONK, TOSS}
 
 THROW = Attack("Throw", ["threw",  "their", "**", "at"], 15, 20, 0.4)

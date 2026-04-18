@@ -4,6 +4,7 @@ from Stages import *
 
 from Player import *
 
-intro()
-loading()
-room1()
+if __name__ == "__main__":
+    intro()
+    loading()
+    room1()

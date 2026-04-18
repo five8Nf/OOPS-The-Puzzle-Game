@@ -18,29 +18,6 @@ WEAPONS = {"1":"Sword",
 def clear_screen() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
-def new_screen():
-    global player
-    clear_screen()
-    if player.lives >= 0 and player.hp >= 1:
-        hp_percent = player.get_hp_percentage()
-        bar_length = 20
-        filled_length = int(bar_length * hp_percent / 100)
-        bar = "█" * filled_length + "░" * (bar_length - filled_length)
-        print(f"""The Puzzle Game
-Lives: {player.lives} {"█ "*player.lives}
-{player.name} HP: {player.hp:.1f}/{player.max_hp:.1f} ({hp_percent:.1f}%) [{bar}]
-inventory: {player.inventory}""")
-        print("\n============================================================================================\n")
-    else:
-        print("""╔══════════════════════════════════════╗
-║__   __            ____  _          _ ║
-║\\ \\ / /__  _   _  |  _ \\(_) ___  __| |║
-║ \\ V / _ \\| | | | | | | | |/ _ \\/ _` |║
-║  | | (_) | |_| | | |_| | |  __/ (_| |║
-║  |_|\\___/ \\__,_| |____/|_|\\___|\\__,_|║
-╚══════════════════════════════════════╝""")
-        quit()
-
 def loading():
     clear_screen()
     print("The Puzzle Game")
@@ -141,7 +118,7 @@ def intro():
 
 def room1():
     global player
-    new_screen()
+    player.new_screen()
     print("""You wake up in a dark gloomy room. 
 The damp walls glisten from the light of the small opening above you.
 You tried to remember what had happened but you can't remember anything but this cave. 
@@ -155,7 +132,7 @@ looking around, you see two pathways. One on the left and one on the right. """)
     if to == "left":
         left()
     elif to == "right":
-        new_screen()
+        player.new_screen()
         print("You walk right and ", end= "")
         pillar_puzzle()
 
@@ -177,10 +154,10 @@ The sign reads:
     ans = input("Input what you want to do: ").lower()
     while not "forward" in ans:
         player.lives -= 1
-        new_screen()
+        player.new_screen()
         print("You hit a pillar and was inpailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
         input("Enter to continue...")
-        new_screen()
+        player.new_screen()
         print("""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
 The sign reads: 
 //===================================\\\\
@@ -196,12 +173,15 @@ The sign reads:
 ||HCF3SO3.     Writen by XD & >:3    ||
 \\\\===================================//
  You look ahead serching for the pillars but you see nothing but pich black drarkness.""")
-        ans = input("Input what you want to do: ").lower()
+        if player.lives == 0:
+            ans = input("you Feel O sliRht sensation tugging you. WhAt Ro you want to Do:")
+        else:
+            ans = input("Input what you want to do: ").lower()
     Whammer()
 
 def Whammer():
     global player
-    new_screen()
+    player.new_screen()
     print("""You walk forward and run through a set of doors. 
 Suddenly, torches riging the walls of the new room and the Pillar Puzzle light up revealing a sleek black handle.
 a sign on the wall reads:
@@ -215,7 +195,7 @@ You find it weird that the sign wrote worthkey rather then worthy but you decide
 As you walk up to the pedestal, you wonder what The Fungranium are as you pull the hammer out.""")
     input("Next...")
     player.add_item("Whammer", 1, WHAMMER)
-    new_screen()
+    player.new_screen()
     print("""You look at the object in your hand and it looks nothing like a hammer.
 Thats when you realise...
 It was a Whammer. You write down in your journal.
@@ -242,7 +222,7 @@ It was a Whammer. You write down in your journal.
 ║Mushrooms I don't know.                ║
 ╚═══════════════════════════════════════╝""")
     input("Next...")
-    new_screen()
+    player.new_screen()
     print(f"""╔═══════════════════════════════════════╗
 ║               Wushroom                ║
 ║This disgusting gelatanous mushroom    ║
@@ -266,12 +246,12 @@ It was a Whammer. You write down in your journal.
 ║Heals: 100hp/1 live                    ║
 ╚═══════════════════════════════════════╝""")
     input("Next...")
-    new_screen()
+    player.new_screen()
     print("""You look around and see a clump of wushrooms on the wall. 
 After swiping them off the wall, you walk back to the first room.""")
     input("Next...")
     player.add_item("Wushroom", 5)
-    new_screen()
+    player.new_screen()
     print(f"""A small whispering voice was heard in the distance. 
 Suddenly, a gigantic spiky tendirl shoots out of the wall, narrowly missing you. 
 You see dark red spines on it and it turns it's tip at you and shoots forward. 
@@ -285,7 +265,7 @@ I'll just help to, move thingsssssss along assssss they say.
 Just keep still and thissssss won't hurt too much. "
 The giant tendril then stabbed forward and you blacked out. """)
     input("Next...")
-    new_screen()
+    player.new_screen()
     print("""You wake up in a dark room. 
 Behind you, you see a wall of scales. 
 There are dark red words floating in the sky. 
@@ -298,7 +278,7 @@ Nobody but someone who can walk through walls can break through. " """)
 
 def left():
     global player
-    new_screen()
+    player.new_screen()
     if not "Whammer" in player.inventory.keys():
         print("You go left and enter a dimly lit room. ")
     print("You see two Pathways. One is a purple portal and the other has a sign saying: ")
@@ -316,7 +296,7 @@ def left():
     while not "portal" in to and not "pit of doom" in to:
         print("that is not a valid option")
         input("Next...")
-        new_screen()
+        player.new_screen()
         to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
     if "portal" in to:
         portal()
@@ -325,11 +305,11 @@ def left():
 
 def portal():
     global player
-    new_screen()
+    player.new_screen()
     if not "Whammer" in player.inventory.keys():
         print("You enter the portal and in a flash of purple appear in the right hallway. ")
         input("Next...")
-        new_screen()
+        player.new_screen()
         pillar_puzzle()
     else:
         print("You jumped in, was instantly engulfed in a sea of scales and died. ")
@@ -339,7 +319,7 @@ def portal():
 
 def pit_of_doom():
     global player
-    new_screen()
+    player.new_screen()
     if not "Whammer" in player.inventory.keys():
         print("""You jumped into THE PIT OF DOOM and your screams echo through the walls of the temple.
 You died to an unknown force. """)
@@ -353,7 +333,7 @@ You died to an unknown force. """)
 
 def colosseum():
     global player
-    new_screen()
+    player.new_screen()
     print("""You look up and see large pillars in front of you. 
 They form a loop ringing around you. 
 You walk towards them and notice that they are made of dirt. 
@@ -361,7 +341,7 @@ An erie neyon pink glow appears in the distance.
 You walk towards it and climb up a small hill and see that the structure you were in was a colosseum.
 Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. """)
     input("Next...")
-    new_screen()
+    player.new_screen()
     print("The top of the grid is labled 1, 2, 3 and the bottom A, B, C. ")
     number = randint(1, 3)
     if number == 1:
@@ -407,7 +387,7 @@ Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. "
             print("You got some Wushrooms. ")
             player.add_item("Wushroom", randint(1, 5))
         input("Next...")
-        new_screen()
+        player.new_screen()
         selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
         while not selected in accepted:
             selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
@@ -419,16 +399,16 @@ Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. "
     
 def dirtingheim_appearence():
     global player
-    new_screen()
+    player.new_screen()
     print("Suddenly, the floor beneath you burst open and you slide down in to the colosseum. ")
     input("Next...")
-    new_screen()
+    player.new_screen()
     print("""A pair of large arms start to grow. 
 Dirt around you start flying up towards the arms, forming a dirtstorm. 
 You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
     input("Next...")
-    new_screen()
+    player.new_screen()
     print(""" ____  _      _   _             _          _           
 |  _ \\(_)_ __| |_(_)_ __   __ _| |__   ___(_)_ __ ___  
 | | | | | '__| __| | '_ \\ / _` | '_ \\ / _ \\ | '_ ` _ \\ 
@@ -439,10 +419,51 @@ But suddenly it stops. """)
 | | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | | 
 |_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_| """)
     input("Next...")
-    battle()
+    battle(player)
+    workshop()
 
 def workshop():
     global player
+    player.new_screen()
+    print("""You enter a ginormous workshop. There are weapons of every kind. 
+Swords, Bows, Arrows, Staffs, Quasirhombicosidodecahedron, Gregory Ulveric Nethandral's G.U.Ns, 
+Spears, Tridents, Maces, Whips, Spiked Ball On Chain, Daggers, Bombs, Flame-Flingers, Hammers 
+and last of all, a bright blue AK47.""")
+    input("Next...")
+    player.new_screen()
+    print("""Wait what?""")
+    input("Next...")
+    player.new_screen()
+    print("""You walk up to the bright blue AK47, ignoring the world ending, Ragnarök worthy 
+weaponry around you.""")
+    input("Next...")
+    player.new_screen()
+    print("""You look at the card beneath it and it reads: 
+//=============================\\\\
+||Property of Hyphen, Creator  ||
+||of Conduits. DO NOT TOUCH on ||
+||pain of... Wait, nevermind.  ||
+||If found mental call: 6349298||
+\\\\=============================//""")
+    input("Next...")
+    player.new_screen()
+    print("""A new voice rings in your head, presumibly Hyphen, it says:
+'Ah! There's the AK47 I smuggled across the border between the real world.
+Oh #!&&@%. What do you mean I'm broadcasting this to the whole of 5AVX?
+!#*&@!, #!#*(&), !*&#()! Where is that Dam off switch!
+I swear it was next to my Dam! Ah there it is. <Insert loud clanging noises>
+Ah fudge, Halbert, I know I'm not meant to bring weapons here but this would make
+a new scientific breakthrough. You're not as protective as your Hollowed.
+<Insert a metal pipe sound and glass breaking sounds>' And with that, the AK47 disapears.""")
+    input("Next...")
+    player.new_screen()
+    print(f"""You walk away from the weapon rack and see a large vat full of ectoplasma. 
+Its shimmering blue glow beckons you. Your {player.small_weapon} falls out of your pocket
+(What pockets you ask? Well you don't have them. It was your hammerspace. Don't ask me how
+it fell out.) into the large vat. You reach in and pull out a {player.weapon_type}""")
+    player.inventory.pop(player.small_weapon)
+    player.add_item()
+    hallway()
 
 def hallway():
     global player
