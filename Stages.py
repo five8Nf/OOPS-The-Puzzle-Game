@@ -1,8 +1,10 @@
 import os
 from time import sleep
 from random import randint
+from inputimeout import inputimeout, TimeoutOccurred
 
 from Dirtingheim import battle
+from Attack_list import *
 from Player import *
 
 player = None
@@ -17,6 +19,17 @@ WEAPONS = {"1":"Sword",
 
 def clear_screen() -> None:
     os.system("cls" if os.name == "nt" else "clear")
+
+def input_sec(text, sec, ans):
+    try:
+        user_input = inputimeout(prompt= text, timeout= sec).lower()
+        if user_input != ans:
+            return False
+        else:
+            return True
+    except TimeoutOccurred:
+        return False
+        
 
 def loading():
     clear_screen()
@@ -152,7 +165,7 @@ The sign reads:
 \\\\===================================//
  You look ahead serching for the pillars but you se nothing but pich black drarkness.""")
     ans = input("Input what you want to do: ").lower()
-    while not "forward" in ans:
+    while (not "forward" in ans) and (not "straight" in ans):
         player.lives -= 1
         player.new_screen()
         print("You hit a pillar and was inpailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
@@ -400,7 +413,7 @@ Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. "
 def dirtingheim_appearence():
     global player
     player.new_screen()
-    print("Suddenly, the floor beneath you burst open and you slide down in to the colosseum. ")
+    print("Suddenly, the floor beneath you burst open and you slide down in to the colosseum.")
     input("Next...")
     player.new_screen()
     print("""A pair of large arms start to grow. 
@@ -409,15 +422,15 @@ You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
     input("Next...")
     player.new_screen()
-    print(""" ____  _      _   _             _          _           
-|  _ \\(_)_ __| |_(_)_ __   __ _| |__   ___(_)_ __ ___  
-| | | | | '__| __| | '_ \\ / _` | '_ \\ / _ \\ | '_ ` _ \\ 
+    print(""" ____  _      _   _             _          _
+|  _ \\(_)_ __| |_(_)_ __   __ _| |__   ___(_)_ __ ___
+| | | | | '__| __| | '_ \\ / _` | '_ \\ / _ \\ | '_ ` _ \\
 | |_| | | |  | |_| | | | | (_| | | | |  __/ | | | | | |
 |____/|_|_|   \\__|_|_| |_|\\__, |_| |_|\\___|_|_| |_| |_|
-| |__   __ _ ___    __ ___|___/ _____ | | _____ _ __   
-| '_ \\ / _` / __|  / _` \\ \\ /\\ / / _ \\| |/ / _ \\ '_ \\  
-| | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | | 
-|_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_| """)
+| |__   __ _ ___    __ ___|___/ _____ | | _____ _ __
+| '_ \\ / _` / __|  / _` \\ \\ /\\ / / _ \\| |/ / _ \\ '_ \\
+| | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | |
+|_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_|""")
     input("Next...")
     battle(player)
     workshop()
@@ -461,9 +474,49 @@ a new scientific breakthrough. You're not as protective as your Hollowed.
 Its shimmering blue glow beckons you. Your {player.small_weapon} falls out of your pocket
 (What pockets you ask? Well you don't have them. It was your hammerspace. Don't ask me how
 it fell out.) into the large vat. You reach in and pull out a {player.weapon_type}""")
-    player.inventory.pop(player.small_weapon)
-    player.add_item()
+    player.remove_item(player.small_weapon)
+    player.add_item(player.weapon_type, 1, LARGE[player.weapon_type])
+    player.remove_attacks(SMALL[player.small_weapon])
+    input("Next...")
     hallway()
 
 def hallway():
     global player
+    player.new_screen()
+    print("""You feel a suspicious presence watching you.
+You can hear a faint murmuring from the door you entered from.
+It sounds like claws on metal.
+You see a dark figure in the distance.""")
+    input("Next...")
+    player.new_screen()
+    print("The air around you grows colder and the ground trembles, as if scared of this creature itself.")
+    input("Next...")
+    player.new_screen()
+    print("""You dash out of the room and grab one of the daggers on the wall, 
+You chuck the dagger at the Suspicious Looking Man.
+The dagger flies straight towards the Man but stops and clatters to the ground.""")
+    input("Next...")
+    player.new_screen()
+    speech = input("Input what you want to say >:3 ")
+    print(speech)
+    input("Next...")
+    player.new_screen()
+    for _ in range(randint(5, 15)):
+        num = randint(1, 50)
+        if num == 50:
+            if input_sec("Goose ", randint(4, 5), "goose"):
+                continue
+        elif num % 2:
+            if input_sec("Duck ", randint(4, 5), "duck"):
+                print("Ducks fall from the sky")
+                continue
+        elif num % 3:
+            if input_sec("Jump ", randint(4, 5), "jump"):
+                continue
+        else:
+            if input_sec("Dodge ", randint(4, 5), "dodge"):
+                continue
+        print("You hit something in the room")
+        input("Next...")
+        player.hp -= 20
+        player.new_screen()

@@ -32,11 +32,18 @@ class Player():
         if new_attacks != None:
             self.attacks = self.attacks | new_attacks
     
-    def clear_screen(self) -> None:
-        os.system("cls" if os.name == "nt" else "clear")
+    def remove_item(self, item):
+        del self.inventory[item]
+
+    def remove_attacks(self, attack_list):
+        for attack in attack_list:
+            self.attacks.remove(attack)
 
     def new_screen(self):
-        self.clear_screen()
+        os.system("cls" if os.name == "nt" else "clear")
+        if self.hp < 1:
+            self.lives -= 1
+            self.hp = self.max_hp
         if self.lives >= 0 and self.hp >= 1:
             hp_percent = self.get_hp_percentage()
             bar_length = 20
