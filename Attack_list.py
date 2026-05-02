@@ -1,9 +1,5 @@
 from Attacks import Attack
 
-# && = insert opponent name
-# ** = insert weapon name
-# :: = insert roll number
-
 PUNCH = Attack("Punch", ["punched"], 5, 10, 0.3)
 KICK = Attack("Kick", ["kicked"], 3, 15, 0.2)
 SARCASM = Attack("Sarcasm", ["used sarcasm on"], 1, 100, 0.1)
@@ -14,11 +10,11 @@ BONK = Attack("Bonk", ["Bonked"], 10, 15, 0.7)
 TOSS = Attack("Toss", ["Tossed", "their", "whammer", "at"], 15, 20, 0.4)
 WHAMMER = {BONK, TOSS}
 
-THROW = Attack("Throw", ["threw",  "their", "**", "at"], 15, 20, 0.4)
+THROW = Attack("Throw", ["threw",  "their", "weapon", "at"], 15, 20, 0.4)
 POMMEL = Attack("Pommel Hit", ["hit", "with", "pommel"], 10, 17, 0.75)
 WHACK = Attack("Whack", ["whacked"], 10, 17, 0.75)
 SWING = Attack("Swing", ["swung", "short", "branch", "at"], 10, 17, 0.75)
-ROLL = Attack("Roll D12", ["rolled", "a"],8 ,20 , "X")
+ROLL = Attack("Roll D12", ["rolled", "a", "NUMBER"],8 ,20 , "A roll from 1 to 12")
 
 SMALL = {"Handle" : {THROW, POMMEL}, 
          "Thin Stick" : {THROW, WHACK}, 

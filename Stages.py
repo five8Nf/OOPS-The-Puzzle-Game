@@ -3,7 +3,7 @@ from time import sleep
 from random import randint
 from inputimeout import inputimeout, TimeoutOccurred
 
-from Dirtingheim import battle
+from Boss import *
 from Attack_list import *
 from Player import *
 
@@ -185,7 +185,7 @@ The sign reads:
 ||HNO3, CISO3H, HCI, HBr, HCN and    ||
 ||HCF3SO3.     Writen by XD & >:3    ||
 \\\\===================================//
- You look ahead serching for the pillars but you see nothing but pich black drarkness.""")
+ You look ahead serching for the pillars but you see nothing but pitch black drarkness.""")
         if player.lives == 0:
             ans = input("you Feel O sliRht sensation tugging you. WhAt Ro you want to Do:")
         else:
@@ -355,6 +355,33 @@ You walk towards it and climb up a small hill and see that the structure you wer
 Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. """)
     input("Next...")
     player.new_screen()
+    print("""Ignoring the tiles, you grab a small pebble that was on the ground under a tree
+underground.
+╔═══════════════════════════════════════╗
+║            Stone Berry                ║
+║These peculiar berrys look exactly like║
+║stone. They feel like stone. They      ║
+║taste... *Insert puking noises* like   ║
+║stone. I don't know why I tried it but ║
+║I just accidentaly kicked a boulder 100║
+║times my size into rubble so it seems  ║
+║to make me stronger. But now my foot   ║
+║hurts and my body is disgusted.        ║
+║                                       ║
+║                                       ║
+║Son of a fish! I just stubbed my toe on║
+║a small rock. Needless to say, I am not║
+║strong whatsoever. I know I should     ║
+║be Whammering the tiles but I want to  ║
+║get a new brain                        ║
+║                                       ║
+║                                       ║
+║                                       ║
+║Strength +5                            ║
+╚═══════════════════════════════════════╝""")
+    player.add_item("Stone Berry", 1)
+    input("Next...")
+    player.new_screen()
     print("The top of the grid is labled 1, 2, 3 and the bottom A, B, C. ")
     number = randint(1, 3)
     if number == 1:
@@ -372,29 +399,6 @@ Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. "
     while selected != ans:
         if randint(1, 3) != 1:
             print("You got some Stone Berrys.")
-            if not "Stone Berry" in player.inventory.keys():
-                print(f"""╔═══════════════════════════════════════╗
-║            Stone Berry                ║
-║These peculiar berrys look exactly like║
-║stone. They feel like stone. They      ║
-║taste... *Insert puking noises* like   ║
-║stone. I don't know why I tried it but ║
-║I just accidentaly kicked a boulder 100║
-║times my size into rubble so it seems  ║
-║to make me stronger. But now my foot   ║
-║hurts and my body is disgusted.        ║
-║                                       ║
-║                                       ║
-║Son of a fish! I just stubbed my toe on║
-║a small rock. Needless to say, I am not║
-║strong whatsoever. I know I should     ║
-║be Whammering the other tiles but oh my║
-║leg hurts!                             ║
-║                                       ║
-║                                       ║
-║                                       ║
-║Strength +5                            ║
-╚═══════════════════════════════════════╝""")
             player.add_item("Stone Berry", randint(1, 2))
         else:
             print("You got some Wushrooms. ")
@@ -432,7 +436,8 @@ But suddenly it stops. """)
 | | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | |
 |_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_|""")
     input("Next...")
-    battle(player)
+    dirtingheim = Boss("Dirtingheim", 200, DIRTINGHEIM, player)
+    dirtingheim.battle()
     workshop()
 
 def workshop():
@@ -489,7 +494,14 @@ It sounds like claws on metal.
 You see a dark figure in the distance.""")
     input("Next...")
     player.new_screen()
-    print("The air around you grows colder and the ground trembles, as if scared of this creature itself.")
+    print("""The air grows colder around you
+Skeletr...
+Wrong game.
+and 
+You feel vibrations from deep bellow
+The Destroyer has...
+Not again!
+as if the ground was scared of this creature itself.""")
     input("Next...")
     player.new_screen()
     print("""You dash out of the room and grab one of the daggers on the wall, 
@@ -520,3 +532,71 @@ The dagger flies straight towards the Man but stops and clatters to the ground."
         input("Next...")
         player.hp -= 20
         player.new_screen()
+    player.new_screen()
+    print("""You reach the end of a hallway.
+An Inconspicuous Flying Ship floats through the ceiling.
+a figure jumps out of the cockpit.
+It is a duck with a dark red crown on it's head.
+╔═══════════════════════════════════════╗
+║King Duck IV and The Suspicious Looking║
+║                 Man                   ║
+║This King Duck IV appears to command an║
+║army of ducks. I know he's the fourth  ║
+║cus his crown says it. He also seems to║
+║command The Suspicious Looking Man who ║
+║seems to act as a down hand man.       ║
+║                                       ║
+║As I write this down, I know they are  ║
+║going to kill me as my greatest        ║
+║acheivement seems to be killing a pile ║
+║of dirt. I probably should be running  ║
+║as King Duck IV is making a speech but ║
+║I'm lazy. Also it's cute.              ║
+║                                       ║
+║                                       ║
+║                                       ║
+║ O                                     ║
+║/|\\                                    ║
+║/ \\                                    ║
+╚═══════════════════════════════════════╝""")
+    input("Next...")
+    player.new_screen()
+    print("""You feel an evil presence watching you.
+The Eye of Cuthul...
+I SAID WRONG GAME.
+You turn around and see the Suspicious Looking Man behind you.
+You wave at him and he waves back while drinking a cup of teh A*.
+'So that's how he's so good at chasing me. '
+You think before realising that not only has he blocked off your only way out, 
+but his tea has also gotten an A* in its exams. """)
+    input("Next...")
+    player.new_screen()
+    print("""As the army of ducks advance, you turn and once again, 
+something falls out of your pocket.
+It's the Earth stone.
+'I need new pockets' you think before the ground below you cracks open
+and shards of rocks are shot out of the floor impailing absolutely nothing.
+as you fall into the crevice, your Whammer starts to release spores that form a portal
+to a new green land. which you fall head first through before blacking out...""")
+    print(""".----------------------------------------.
+|               ___  __      __   ___    |
+|                |  /  \\    |__) |__     |
+|                |  \\__/    |__) |___    |
+|                                        |
+| __   __       ___              ___  __ |
+|/  ` /  \\ |\\ |  |  | |\\ | |  | |__  |  \\|
+|\\__, \\__/ | \\|  |  | | \\| \\__/ |___ |__/|
+'----------------------------------------'
+
+
+
+
+
+
+
+
+
+
+
+
+Halbert's note: I need to get a new narrator.""")
