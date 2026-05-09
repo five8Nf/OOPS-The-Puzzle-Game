@@ -392,9 +392,9 @@ underground.
         ans = "C"
     ans += str(randint(1, 3))
     accepted = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-    selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+    selected = input(" Input a square to hit e.g. A1, B2, C3: ").upper()
     while not selected in accepted:
-        selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+        selected = input(" Input a square to hit e.g. A1, B2, C3: ").upper()
     accepted.remove(selected)
     while selected != ans:
         if randint(1, 3) != 1:

@@ -6,7 +6,7 @@ SARCASM = Attack("Sarcasm", ["used sarcasm on"], 1, 100, 0.1)
 
 BASIC = {PUNCH, KICK, SARCASM}
 
-BONK = Attack("Bonk", ["Bonked"], 10, 15, 0.7)
+BONK = Attack("Bonk", ["bonked"], 10, 15, 0.7)
 TOSS = Attack("Toss", ["Tossed", "their", "whammer", "at"], 15, 20, 0.4)
 WHAMMER = {BONK, TOSS}
 
@@ -37,7 +37,7 @@ LARGE = {"Sword" : {SLASH, STAB},
          "Staff" : {WHACK, JAB}, 
          "Quasirhombicosidodecahedron" : {SWIPE, TOSS}}
 
-ROCKSLIDE = Attack("Rock Slide", ["Rocks", "fell", "from", "the", "sky"],30 ,35 , 0.1)
-EARTHQUAKE = Attack("Earthquake", ["Caused", "an", "earthquake"], 10, 15, 1)
+ROCKSLIDE = Attack("Rock Slide", ["caused", "rocks", "to", "fall", "from", "the", "sky"],30 ,35 , 0.1)
+EARTHQUAKE = Attack("Earthquake", ["caused", "an", "earthquake", "near"], 10, 15, 1.0)
 
 DIRTINGHEIM = {ROCKSLIDE, EARTHQUAKE}
