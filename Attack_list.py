@@ -14,7 +14,7 @@ THROW = Attack("Throw", ["threw",  "their", "weapon", "at"], 15, 20, 0.4)
 POMMEL = Attack("Pommel Hit", ["hit", "with", "pommel"], 10, 17, 0.75)
 WHACK = Attack("Whack", ["whacked"], 10, 17, 0.75)
 SWING = Attack("Swing", ["swung", "short", "branch", "at"], 10, 17, 0.75)
-ROLL = Attack("Roll D12", ["rolled", "a", "NUMBER"],8 ,20 , "A roll from 1 to 12")
+ROLL = Attack("Roll D12", ["rolled", "a", "NUMBER", "attacking"],8 ,20 , "A roll from 1 to 12")
 
 SMALL = {"Handle" : {THROW, POMMEL}, 
          "Thin Stick" : {THROW, WHACK}, 
@@ -29,7 +29,7 @@ SHOOT = Attack("Shoot", ["shot", "at"], 23, 35, 0.4)
 WHACK = Attack("Whack", ["whacked"], 20, 25, 0.7)
 JAB = Attack("Jab", ["jabbed", "at"], 15, 30, 0.5)
 
-SWIPE = Attack("Swipe", ["swiped", "at"], 0, 50, 0.5)
+SWIPE = Attack("Swipe", ["swiped", "at"], 10, 50, 0.4)
 TOSS = Attack("Toss", ["tossed", "Quasirhombicosidodecahedron", "and", "it", "broke", "into", "shards"], 10, 30, 0.8)
 
 LARGE = {"Sword" : {SLASH, STAB}, 
@@ -37,7 +37,12 @@ LARGE = {"Sword" : {SLASH, STAB},
          "Staff" : {WHACK, JAB}, 
          "Quasirhombicosidodecahedron" : {SWIPE, TOSS}}
 
-ROCKSLIDE = Attack("Rock Slide", ["caused", "rocks", "to", "fall", "from", "the", "sky"],30 ,35 , 0.1)
+FLAME_THROWER = Attack("Flame Thrower", ["threw", "flames", "at"], 25, 50, 0.5)
+OUTBREAK = Attack("Outbreak", ["exploded", "into", "flames", "near"], 25, 55, 0.5)
+
+FIRE = {FLAME_THROWER, OUTBREAK}
+
+ROCKSLIDE = Attack("Rock Slide", ["caused", "rocks", "to", "fall", "from", "the", "sky"],30 ,60 , 0.1)
 EARTHQUAKE = Attack("Earthquake", ["caused", "an", "earthquake", "near"], 10, 15, 1.0)
 
 DIRTINGHEIM = {ROCKSLIDE, EARTHQUAKE}

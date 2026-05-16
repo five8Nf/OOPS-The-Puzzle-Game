@@ -438,6 +438,59 @@ But suddenly it stops. """)
     input("Next...")
     dirtingheim = Boss("Dirtingheim", 200, DIRTINGHEIM, player)
     dirtingheim.battle()
+    print("""As the dying screams of the great Dirtlord3...
+    Wrong show!
+Dirtingheim echos around you, 
+you breath a sigh of releaf.
+Sorry, releave.
+oh wait or is it releav
+    OH MY FIRSTS, IT'S RELIEVE.
+...""")
+    input("Next...")
+    player.new_screen()
+    print("""You breath a sigh of relieve.""")
+    input("Next...")
+    player.new_screen()
+    print("""Suddenly, the ground rips open as dirty tendreils burst out 
+as both you and Dirtingheim fall to the floor below.
+In the distance, you see a shining glint in the sky.
+You reach for it and burn your han...
+    No they didn't.
+You grab the shining stone and discover that it is a fire stone""")
+    input("Next...")
+    player.add_item("Fire Stone", 1, FIRE)
+    player.new_screen()
+    print("You look up and you see it. Dirtingheim Prime!")
+    input("Next...")
+    player.new_screen()
+    print("""You instintively threw your fire stone at it
+and its coal eyes lit up.
+╔═══════════════════════════════════════╗
+║   Dirtingheim and Dirtingheim Prime   ║
+║This Monstrosity is a ginormous pile of║
+║dirt with arms and a mouth. It's Prime ║
+║varient appears after you kill it once.║
+║coal seems to grow to fill in it's eyes║
+║and this dirty king gets more powerfull║
+║IhateitIhateitIhateitIhateitIhateitIhat║
+║eitIhateitIhateitIhateitIhateitIhateitI║
+║                                       ║
+║When against a dirt lord don't use fire║
+║When adainst a dirt lord don;t use fire║
+║when against a dirt lord DON'T USE FIRE║
+║When @g@inst @ dirt lord D0N'T US3 FIR3║
+║Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3║
+║                                       ║
+║Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3║
+║                                       ║
+║I think I ate a rotten stone berry :(  ║
+║135-624-532-26-53-327-44               ║
+║Ugh i don't feel well.                 ║
+╚═══════════════════════════════════════╝""")
+    input("N3x1...")
+    dirtingheim_prime = Boss("Dirtingheim Prime", 400, DIRTINGHEIM+FIRE, player)
+    dirtingheim_prime.battle()
+    player.add_item("Earth_Stone", 1, DIRTINGHEIM)
     workshop()
 
 def workshop():
@@ -471,7 +524,7 @@ Oh #!&&@%. What do you mean I'm broadcasting this to the whole of 5AVX?
 !#*&@!, #!#*(&), !*&#()! Where is that Dam off switch!
 I swear it was next to my Dam! Ah there it is. <Insert loud clanging noises>
 Ah fudge, Halbert, I know I'm not meant to bring weapons here but this would make
-a new scientific breakthrough. You're not as protective as your Hollowed.
+a new scientific breakthrough. You're not as protective as your...
 <Insert a metal pipe sound and glass breaking sounds>' And with that, the AK47 disapears.""")
     input("Next...")
     player.new_screen()
@@ -496,11 +549,11 @@ You see a dark figure in the distance.""")
     player.new_screen()
     print("""The air grows colder around you
 Skeletr...
-Wrong game.
+    Wrong game.
 and 
 You feel vibrations from deep bellow
 The Destroyer has...
-Not again!
+    Stop!
 as if the ground was scared of this creature itself.""")
     input("Next...")
     player.new_screen()
@@ -563,7 +616,7 @@ It is a duck with a dark red crown on it's head.
     player.new_screen()
     print("""You feel an evil presence watching you.
 The Eye of Cuthul...
-I SAID WRONG GAME.
+    I SAID WRONG GAME! YOU ARE PISSING ME OF Insert Name!
 You turn around and see the Suspicious Looking Man behind you.
 You wave at him and he waves back while drinking a cup of teh A*.
 'So that's how he's so good at chasing me. '
