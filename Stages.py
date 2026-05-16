@@ -8,9 +8,7 @@ from Attack_list import *
 from Player import *
 
 player = None
-
-def get_player():
-    return player
+page = 39
 
 WEAPONS = {"1":"Sword", 
            "2":"Bow", 
@@ -64,16 +62,16 @@ def loading():
 def intro():
     global player
     clear_screen()
-    print("""/========================================================\\
+    print(f"""/{"="*56}\\
 ||__        __   _                            _         ||
 ||\\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___   ||
 || \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\  ||
 ||  \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | ||
 ||   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  ||
-\\========================================================/""")
+\\{"="*56}/""")
     sleep(5)
     clear_screen()
-    print(""">>=====================================================================<<
+    print(f""">>{"="*69}<<
 || _________  ___  ___  _______                                        ||
 |||\\___   ___\\\\  \\|\\  \\|\\  ___ \\                                       ||
 ||\\|___ \\  \\_\\ \\  \\\\\\  \\ \\   __/|                                      ||
@@ -101,7 +99,7 @@ def intro():
 ||                      \\ \\  \\|\\  \\ \\  \\ \\  \\ \\  \\    \\ \\  \\ \\  \\_|\\ \\ ||
 ||                       \\ \\_______\\ \\__\\ \\__\\ \\__\\    \\ \\__\\ \\_______\\||
 ||                        \\|_______|\\|__|\\|__|\\|__|     \\|__|\\|_______|||
->>=====================================================================<<""")
+>>{"="*69}<<""")
     sleep(10)
     clear_screen()
     print("The Puzzle Game")
@@ -151,18 +149,18 @@ looking around, you see two pathways. One on the left and one on the right. """)
 
 def pillar_puzzle():
     global player
-    print("""A neyon green sign appears beside you as the door behind you slams shut. 
+    print(f"""A neyon green sign appears beside you as the door behind you slams shut. 
 The sign reads: 
-//===================================\\\\
-||You have reached the Pillar Puzzle!||
-||You need to get past the pillars!  ||
-||Warning Pillars are Poisonous,     ||
-||Spiky,Deadly, Unbreakable, Venemous||
-||Toxic, Acid Proof and covered with ||
-||Acids such as HSbF2, HBR, HF, HI,  ||
-||HCIO4, H2SO4, HNO3, CISO3H, HCI,   ||
-||HBr, HCN and HCF3SO3.              ||
-\\\\===================================//
+//{"="*35}\\\\
+||{"You have reached the Pillar Puzzle!":<35}||
+||{"You need to get past the pillars!":<35}||
+||{"Warning Pillars are Poisonous,":<35}||
+||{"Spiky,Deadly, Unbreakable, Venemous":<35}||
+||{"Toxic, Acid Proof and covered with":<35}||
+||{"Acids such as HSbF2, HBR, HF, HI,":<35}||
+||{"HCIO4, H2SO4, HNO3, CISO3H, HCI,":<35}||
+||{"HBr, HCN and HCF3SO3.":<35}||
+\\\\{"="*35}//
  You look ahead serching for the pillars but you se nothing but pich black drarkness.""")
     ans = input("Input what you want to do: ").lower()
     while (not "forward" in ans) and (not "straight" in ans):
@@ -171,93 +169,93 @@ The sign reads:
         print("You hit a pillar and was inpailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
         input("Enter to continue...")
         player.new_screen()
-        print("""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
+        print(f"""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
 The sign reads: 
-//===================================\\\\
-||You have reached the Pillar Puzzle!||
-||You need to get past the pillars!  ||
-||[!!WARNING!!] Pillars are          ||
-||Poisonous, Spiky. Deadly.          ||
-||Unbreakable. Venomous              ||
-||Toxic. Acid-proof. Covered with    ||
-||acids including but not limited to ||
-||HSbF2, HBR, HF, HI, HCIO4, H2SO4,  ||
-||HNO3, CISO3H, HCI, HBr, HCN and    ||
-||HCF3SO3.     Writen by XD & >:3    ||
-\\\\===================================//
+//{"="*35}\\\\
+||{"You have reached the Pillar Puzzle!":<35}||
+||{"You need to get past the pillars!":<35}||
+||{"[!!WARNING!!] Pillars are":<35}||
+||{"Poisonous, Spiky. Deadly.":<35}||
+||{"Unbreakable. Venomous":<35}||
+||{"Toxic. Acid-proof. Covered with":<35}||
+||{"acids including but not limited to":<35}||
+||{"HSbF2, HBR, HF, HI, HCIO4, H2SO4,":<35}||
+||{"HNO3, CISO3H, HCI, HBr, HCN and":<35}||
+||{"HCF3SO3.     Writen by XD & >:3":<35}||
+\\\\{"="*35}//
  You look ahead serching for the pillars but you see nothing but pitch black drarkness.""")
         if player.lives == 0:
             ans = input("you Feel O sliRht sensation tugging you. WhAt Ro you want to Do:")
         else:
-            ans = input("Input what you want to do: ").lower()
+            ans = input("Input what you want to do:").lower()
     Whammer()
 
 def Whammer():
     global player
     player.new_screen()
-    print("""You walk forward and run through a set of doors. 
+    print(f"""You walk forward and run through a set of doors. 
 Suddenly, torches riging the walls of the new room and the Pillar Puzzle light up revealing a sleek black handle.
 a sign on the wall reads:
-//=============================\\\\
-||Whosoever holds this Whammer,||
-||if he be worthkey,           ||
-||shall possess the power of   ||
-||The Fungranium.              ||
-\\\\=============================//
+//{"="*29}\\\\
+||{"Whosoever holds this Whammer,":<29}||
+||{"if he be worthkey,":<29}||
+||{"shall possess the power of":<29}||
+||{"The Fungranium.":<29}||
+\\\\{"="*29}//
 You find it weird that the sign wrote worthkey rather then worthy but you decided to try to hold the hammer. 
 As you walk up to the pedestal, you wonder what The Fungranium are as you pull the hammer out.""")
     input("Next...")
     player.add_item("Whammer", 1, WHAMMER)
     player.new_screen()
-    print("""You look at the object in your hand and it looks nothing like a hammer.
+    print(f"""You look at the object in your hand and it looks nothing like a hammer.
 Thats when you realise...
 It was a Whammer. You write down in your journal.
-╔═══════════════════════════════════════╗
-║                Whammer                ║
-║This peculiar object looks like a      ║
-║shriviled mushroom and a hammer        ║
-║combined. It does not have any effect  ║
-║on anything however i did manage to    ║
-║find a weird looking mushroom I dubed  ║
-║"Wushroom" that was squashed into a    ║
-║disgustingly sticky goopy gelatinous   ║
-║mess. I haven't tried them yet so I    ║
-║write them down later. On the back of  ║
-║the sign, I found text saying that this║
-║"Mystical" hammer holds great power and║
-║can be used to smash Neyon Pink Tiles. ║
-║It also said that the Neyon Pink Tiles ║
-║were in memorium to the first and last ║
-║Creator of Fungranium, Neyon Pink      ║
-║Fungus. I suspect that this Fungranium ║
-║Is a type of Stickman like myself who  ║
-║Worship Mushrooms or maybe even are    ║
-║Mushrooms I don't know.                ║
-╚═══════════════════════════════════════╝""")
+╔{"═"*page}╗
+║{"Whammer":^page}║
+║{"This peculiar object looks like a":<page}║
+║{"shriviled mushroom and a hammer":<page}║
+║{"combined. It does not have any effect":<page}║
+║{"on anything however i did manage to":<page}║
+║{"find a weird looking mushroom I dubed":<page}║
+║{"'Wushroom' that was squashed into a":<page}║
+║{"disgustingly sticky goopy gelatinous":<page}║
+║{"mess. I haven't tried them yet so I":<page}║
+║{"write them down later. On the back of":<page}║
+║{"the sign, I found text saying that this":<page}║
+║{"'Mystical' hammer holds great power and":<page}║
+║{"can be used to smash Neyon Pink Tiles.":<page}║
+║{"It also said that the Neyon Pink Tiles":<page}║
+║{"were in memorium to the first and last":<page}║
+║{"Creator of Fungranium, Neyon Pink":<page}║
+║{"Fungus. I suspect that this Fungranium":<page}║
+║{"Is a type of Stickman like myself who":<page}║
+║{"Worship Mushrooms or maybe even are":<page}║
+║{"Mushrooms I don't know.":<page}║
+╚{"═"*page}╝""")
     input("Next...")
     player.new_screen()
-    print(f"""╔═══════════════════════════════════════╗
-║               Wushroom                ║
-║This disgusting gelatanous mushroom    ║
-║seems to puslate with great healing    ║
-║energy. In my mind I heard a voice say ║
-║"Hi insert_name. Creator of Hollow here║
-║I have made these weird looking fungus ║
-║grow across the land cus I'm bored. I  ║
-║made them heal you completely or give  ║
-║give you another chance to live if you ║
-║are healty. But Creator of Corruption  ║
-║wants things to be ballanced so it     ║
-║tastes horrendous and also removes a   ║
-║finger. What should I call it? Hmm...  ║
-║That's a great question Spring. Aha!   ║
-║How about Wushroom. That's a very      ║
-║{f"creative name {player.name} let's use":<39}║
-║it. " I felt confused on who this      ║
-║Creator of Hollow was and why he was   ║
-║talking to a spring but nevermind      ║
-║Heals: 100hp/1 live                    ║
-╚═══════════════════════════════════════╝""")
+    print(f"""╔{"═"*page}╗
+║{"Wushroom":^page}║
+║{"This disgusting gelatanous mushroom":<page}║
+║{"seems to puslate with great healing":<page}║
+║{"energy. In my mind I heard a voice say":<page}║
+║{"'Hi insert_name. Creator of Hollow here":<page}║
+║{"I have made these weird looking fungus":<page}║
+║{"grow across the land cus I'm bored. I":<page}║
+║{"made them heal you completely or give":<page}║
+║{"give you another chance to live if you":<page}║
+║{"are healty. But Creator of Corruption":<page}║
+║{"wants things to be ballanced so it":<page}║
+║{"tastes horrendous and also removes a":<page}║
+║{"finger. What should I call it? Hmm...":<page}║
+║{"That's a great question Spring. Aha!":<page}║
+║{"How about Wushroom. That's a very":<page}║
+║{"creative name {player.name} let's use":<page}║
+║{"it. ' I felt confused on who this":<page}║
+║{"Creator of Hollow was and why he was":<page}║
+║{"talking to a spring but nevermind":<page}║
+║{"Heals: 100hp/1 live":<page}║
+╚{"═"*page}╝""")
     input("Next...")
     player.new_screen()
     print("""You look around and see a clump of wushrooms on the wall. 
@@ -295,7 +293,7 @@ def left():
     if not "Whammer" in player.inventory.keys():
         print("You go left and enter a dimly lit room. ")
     print("You see two Pathways. One is a purple portal and the other has a sign saying: ")
-    print("""/==============================================\\
+    print(f"""/{"="*46}\\
 || _____ _  _ ___   ___ ___ _____             ||
 |||_   _| || | __| | _ \\_ _|_   _|            ||
 ||  | | | __ | _|  |  _/| |  | |              ||
@@ -304,7 +302,7 @@ def left():
 ||| (_) | _|  | |) | (_) | (_) | |\\/| |  _ | |||
 || \\___/|_|   |___/ \\___/ \\___/|_|  |_| (_)| |||
 ||                                        /_/ ||
-\\==============================================/""")
+\\{"="*46}/""")
     to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
     while not "portal" in to and not "pit of doom" in to:
         print("that is not a valid option")
@@ -355,30 +353,30 @@ You walk towards it and climb up a small hill and see that the structure you wer
 Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. """)
     input("Next...")
     player.new_screen()
-    print("""Ignoring the tiles, you grab a small pebble that was on the ground under a tree
+    print(f"""Ignoring the tiles, you grab a small pebble that was on the ground under a tree
 underground.
-╔═══════════════════════════════════════╗
-║            Stone Berry                ║
-║These peculiar berrys look exactly like║
-║stone. They feel like stone. They      ║
-║taste... *Insert puking noises* like   ║
-║stone. I don't know why I tried it but ║
-║I just accidentaly kicked a boulder 100║
-║times my size into rubble so it seems  ║
-║to make me stronger. But now my foot   ║
-║hurts and my body is disgusted.        ║
-║                                       ║
-║                                       ║
-║Son of a fish! I just stubbed my toe on║
-║a small rock. Needless to say, I am not║
-║strong whatsoever. I know I should     ║
-║be Whammering the tiles but I want to  ║
-║get a new brain                        ║
-║                                       ║
-║                                       ║
-║                                       ║
-║Strength +5                            ║
-╚═══════════════════════════════════════╝""")
+╔{"═"*page}╗
+║{"Stone Berry":^page}║
+║{"These peculiar berrys look exactly like":<page}║
+║{"stone. They feel like stone. They":<page}║
+║{"taste... *Insert puking noises* like":<page}║
+║{"stone. I don't know why I tried it but":<page}║
+║{"I just accidentaly kicked a boulder 100":<page}║
+║{"times my size into rubble so it seems":<page}║
+║{"to make me stronger. But now my foot":<page}║
+║{"hurts and my body is disgusted.":<page}║
+║{" "*page}║
+║{" "*page}║
+║{"Son of a fish! I just stubbed my toe on":<page}║
+║{"a small rock. Needless to say, I am not":<page}║
+║{"strong whatsoever. I know I should":<page}║
+║{"be Whammering the tiles but I want to":<page}║
+║{"get a new brain":<page}║
+║{" "*page}║
+║{" "*page}║
+║{" "*page}║
+║{"Strength +5":<page}║
+╚{"═"*page}╝""")
     player.add_item("Stone Berry", 1)
     input("Next...")
     player.new_screen()
@@ -463,30 +461,30 @@ You grab the shining stone and discover that it is a fire stone""")
     print("You look up and you see it. Dirtingheim Prime!")
     input("Next...")
     player.new_screen()
-    print("""You instintively threw your fire stone at it
+    print(f"""You instintively threw your fire stone at it
 and its coal eyes lit up.
-╔═══════════════════════════════════════╗
-║   Dirtingheim and Dirtingheim Prime   ║
-║This Monstrosity is a ginormous pile of║
-║dirt with arms and a mouth. It's Prime ║
-║varient appears after you kill it once.║
-║coal seems to grow to fill in it's eyes║
-║and this dirty king gets more powerfull║
-║IhateitIhateitIhateitIhateitIhateitIhat║
-║eitIhateitIhateitIhateitIhateitIhateitI║
-║                                       ║
-║When against a dirt lord don't use fire║
-║When adainst a dirt lord don;t use fire║
-║when against a dirt lord DON'T USE FIRE║
-║When @g@inst @ dirt lord D0N'T US3 FIR3║
-║Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3║
-║                                       ║
-║Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3║
-║                                       ║
-║I think I ate a rotten stone berry :(  ║
-║135-624-532-26-53-327-44               ║
-║Ugh i don't feel well.                 ║
-╚═══════════════════════════════════════╝""")
+╔{"═"*page}╗
+║{"Dirtingheim and Dirtingheim Prime":^page}║
+║{"This Monstrosity is a ginormous pile of":<page}║
+║{"dirt with arms and a mouth. It's Prime":<page}║
+║{"varient appears after you kill it once.":<page}║
+║{"coal seems to grow to fill in it's eyes":<page}║
+║{"and this dirty king gets more powerfull":<page}║
+║{"IhateitIhateitIhateitIhateitIhateitIhat":<page}║
+║{"eitIhateitIhateitIhateitIhateitIhateitI":<page}║
+║{" "*page}║
+║{"When against a dirt lord don't use fire":<page}║
+║{"When adainst a dirt lord don;t use fire":<page}║
+║{"when against a dirt lord DON'T USE FIRE":<page}║
+║{"When @g@inst @ dirt lord D0N'T US3 FIR3":<page}║
+║{"Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3":<page}║
+║{" "*page}║
+║{"Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3":<page}║
+║{" "*page}║
+║{"I think I ate a rotten stone berry :(":<page}║
+║{"135-624-532-26-53-327-44":<page}║
+║{"Ugh i don't feel well.":<page}║
+╚{"═"*page}╝""")
     input("N3x1...")
     dirtingheim_prime = Boss("Dirtingheim Prime", 400, DIRTINGHEIM+FIRE, player)
     dirtingheim_prime.battle()
@@ -509,13 +507,13 @@ and last of all, a bright blue AK47.""")
 weaponry around you.""")
     input("Next...")
     player.new_screen()
-    print("""You look at the card beneath it and it reads: 
-//=============================\\\\
-||Property of Hyphen, Creator  ||
-||of Conduits. DO NOT TOUCH on ||
-||pain of... Wait, nevermind.  ||
-||If found mental call: 6349298||
-\\\\=============================//""")
+    print(f"""You look at the card beneath it and it reads: 
+//{"="*29}\\\\
+||{"Property of Hyphen, Creator":<29}||
+||{"of Conduits. DO NOT TOUCH on ":<29}||
+||{"pain of... Wait, nevermind.":<29}||
+||{"If found mental call: 6349298":<29}||
+\\\\{"="*29}//""")
     input("Next...")
     player.new_screen()
     print("""A new voice rings in your head, presumibly Hyphen, it says:
@@ -586,32 +584,32 @@ The dagger flies straight towards the Man but stops and clatters to the ground."
         player.hp -= 20
         player.new_screen()
     player.new_screen()
-    print("""You reach the end of a hallway.
+    print(f"""You reach the end of a hallway.
 An Inconspicuous Flying Ship floats through the ceiling.
 a figure jumps out of the cockpit.
 It is a duck with a dark red crown on it's head.
-╔═══════════════════════════════════════╗
-║King Duck IV and The Suspicious Looking║
-║                 Man                   ║
-║This King Duck IV appears to command an║
-║army of ducks. I know he's the fourth  ║
-║cus his crown says it. He also seems to║
-║command The Suspicious Looking Man who ║
-║seems to act as a down hand man.       ║
-║                                       ║
-║As I write this down, I know they are  ║
-║going to kill me as my greatest        ║
-║acheivement seems to be killing a pile ║
-║of dirt. I probably should be running  ║
-║as King Duck IV is making a speech but ║
-║I'm lazy. Also it's cute.              ║
-║                                       ║
-║                                       ║
-║                                       ║
-║ O                                     ║
-║/|\\                                    ║
-║/ \\                                    ║
-╚═══════════════════════════════════════╝""")
+╔{"═"*page}╗
+║{"King Duck IV and The Suspicious Looking":^page}║
+║{"Man":^page}║
+║{"This King Duck IV appears to command an":<page}║
+║{"army of ducks. I know he's the fourth":<page}║
+║{"cus his crown says it. He also seems to":<page}║
+║{"command The Suspicious Looking Man who":<page}║
+║{"seems to act as a down hand man.":<page}║
+║{"":<page}║
+║{"As I write this down, I know they are":<page}║
+║{"going to kill me as my greatest":<page}║
+║{"acheivement seems to be killing a pile":<page}║
+║{"of dirt. I probably should be running":<page}║
+║{"as King Duck IV is making a speech but":<page}║
+║{"I'm lazy. Also it's cute.":<page}║
+║{" "*page}║
+║{" "*page}║
+║{" "*page}║
+║{" O  ":<page}║
+║{"/|\ ":<page}║
+║{"/ \ ":<page}║
+╚{"═"*page}╝""")
     input("Next...")
     player.new_screen()
     print("""You feel an evil presence watching you.
@@ -631,7 +629,7 @@ It's the Earth stone.
 and shards of rocks are shot out of the floor impailing absolutely nothing.
 as you fall into the crevice, your Whammer starts to release spores that form a portal
 to a new green land. which you fall head first through before blacking out...""")
-    print(""".----------------------------------------.
+    print(f""".{"-"*40}.
 |               ___  __      __   ___    |
 |                |  /  \\    |__) |__     |
 |                |  \\__/    |__) |___    |
@@ -639,7 +637,7 @@ to a new green land. which you fall head first through before blacking out..."""
 | __   __       ___              ___  __ |
 |/  ` /  \\ |\\ |  |  | |\\ | |  | |__  |  \\|
 |\\__, \\__/ | \\|  |  | | \\| \\__/ |___ |__/|
-'----------------------------------------'
+'{"-"*40}'
 
 
 
