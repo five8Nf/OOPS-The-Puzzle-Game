@@ -6,6 +6,7 @@ from inputimeout import inputimeout, TimeoutOccurred
 from Boss import *
 from Attack_list import *
 from Player import *
+from Strings_to_format import *
 
 player = None
 page = 39
