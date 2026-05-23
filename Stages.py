@@ -7,9 +7,9 @@ from Boss import *
 from Attack_list import *
 from Player import *
 from Ascii_things import *
+from String_formating import *
 
 player = None
-page = 39
 
 WEAPONS = {"1":"Sword", 
            "2":"Bow", 
@@ -176,53 +176,11 @@ As you walk up to the pedestal, you wonder what The Fungranium are as you pull t
     player.new_screen()
     print(f"""You look at the object in your hand and it looks nothing like a hammer.
 Thats when you realise...
-It was a Whammer. You write down in your journal.
-╔{"═"*page}╗
-║{"Whammer":^page}║
-║{"This peculiar object looks like a":<page}║
-║{"shriviled mushroom and a hammer":<page}║
-║{"combined. It does not have any effect":<page}║
-║{"on anything however i did manage to":<page}║
-║{"find a weird looking mushroom I dubed":<page}║
-║{"'Wushroom' that was squashed into a":<page}║
-║{"disgustingly sticky goopy gelatinous":<page}║
-║{"mess. I haven't tried them yet so I":<page}║
-║{"write them down later. On the back of":<page}║
-║{"the sign, I found text saying that this":<page}║
-║{"'Mystical' hammer holds great power and":<page}║
-║{"can be used to smash Neyon Pink Tiles.":<page}║
-║{"It also said that the Neyon Pink Tiles":<page}║
-║{"were in memorium to the first and last":<page}║
-║{"Creator of Fungranium, Neyon Pink":<page}║
-║{"Fungus. I suspect that this Fungranium":<page}║
-║{"Is a type of Stickman like myself who":<page}║
-║{"Worship Mushrooms or maybe even are":<page}║
-║{"Mushrooms I don't know.":<page}║
-╚{"═"*page}╝""")
+It was a Whammer. You write down in your journal.""")
+    page("Whammer", "This peculiar object looks like a shriviled mushroom and a hammer combined. It does not have any effect on anything however i did manage to find a weird looking mushroom I dubed 'Wushroom' that was squashed into a disgustingly sticky goopy gelatinous mess. I haven't tried them yet so I write them down later. On the back of the sign, I found text saying that this 'Mystical' hammer holds great power and can be used to smash Neyon Pink Tiles. It also said that the Neyon Pink Tiles were in memorium to the first and last Creator of Fungranium, Neyon Pink Fungus. I suspect that this Fungranium Is a type of Stickman like myself who Worship Mushrooms or maybe even are Mushrooms I don't know.")
     input("Next...")
     player.new_screen()
-    print(f"""╔{"═"*page}╗
-║{"Wushroom":^page}║
-║{"This disgusting gelatanous mushroom":<page}║
-║{"seems to puslate with great healing":<page}║
-║{"energy. In my mind I heard a voice say":<page}║
-║{"'Hi insert_name. Creator of Hollow here":<page}║
-║{"I have made these weird looking fungus":<page}║
-║{"grow across the land cus I'm bored. I":<page}║
-║{"made them heal you completely or give":<page}║
-║{"give you another chance to live if you":<page}║
-║{"are healty. But Creator of Corruption":<page}║
-║{"wants things to be ballanced so it":<page}║
-║{"tastes horrendous and also removes a":<page}║
-║{"finger. What should I call it? Hmm...":<page}║
-║{"That's a great question Spring. Aha!":<page}║
-║{"How about Wushroom. That's a very":<page}║
-║{"creative name {player.name} let's use":<page}║
-║{"it. ' I felt confused on who this":<page}║
-║{"Creator of Hollow was and why he was":<page}║
-║{"talking to a spring but nevermind":<page}║
-║{"Heals: 100hp/1 live":<page}║
-╚{"═"*page}╝""")
+    page("Wushroom", f"This disgusting gelatanous mushroom seems to puslate with great healing energy. In my mind I heard a voice say 'Hi insert_name. Creator of Hollow here I have made these weird looking fungus grow across the land cus I'm bored. I made them heal you completely or give give you another chance to live if you are healty. But Creator of Corruption wants things to be ballanced so it tastes horrendous and also removes a finger. What should I call it? Hmm... That's a great question Spring. Aha! How about Wushroom. That's a very creative name {player.name} let's use it. ' I felt confused on who this Creator of Hollow was and why he was talking to a spring but nevermind \n Heals: 100hp/1 live")
     input("Next...")
     player.new_screen()
     print("""You look around and see a clump of wushrooms on the wall. 
@@ -312,29 +270,8 @@ Glancing at the pink glow, you see a grid of neyon pink tiles in front of you. "
     input("Next...")
     player.new_screen()
     print(f"""Ignoring the tiles, you grab a small pebble that was on the ground under a tree
-underground.
-╔{"═"*page}╗
-║{"Stone Berry":^page}║
-║{"These peculiar berrys look exactly like":<page}║
-║{"stone. They feel like stone. They":<page}║
-║{"taste... *Insert puking noises* like":<page}║
-║{"stone. I don't know why I tried it but":<page}║
-║{"I just accidentaly kicked a boulder 100":<page}║
-║{"times my size into rubble so it seems":<page}║
-║{"to make me stronger. But now my foot":<page}║
-║{"hurts and my body is disgusted.":<page}║
-║{" "*page}║
-║{" "*page}║
-║{"Son of a fish! I just stubbed my toe on":<page}║
-║{"a small rock. Needless to say, I am not":<page}║
-║{"strong whatsoever. I know I should":<page}║
-║{"be Whammering the tiles but I want to":<page}║
-║{"get a new brain":<page}║
-║{" "*page}║
-║{" "*page}║
-║{" "*page}║
-║{"Strength +5":<page}║
-╚{"═"*page}╝""")
+underground.""")
+    page("Stone Berry", "These peculiar berrys look exactly like stone. They feel like stone. They taste... *Insert puking noises* like stone. I don't know why I tried it but I just accidentaly kicked a boulder 100 times my size into rubble so it seems to make me stronger. But now my foot hurts and my body is disgusted. \n \n Son of a fish! I just stubbed my toe on a small rock. Needless to say, I am not strong whatsoever. I know I should be Whammering the tiles but I want to get a new brain \n \n \n Strength +5")
     player.add_item("Stone Berry", 1)
     input("Next...")
     player.new_screen()
@@ -412,29 +349,8 @@ You grab the shining stone and discover that it is a fire stone""")
     input("Next...")
     player.new_screen()
     print(f"""You instintively threw your fire stone at it
-and its coal eyes lit up.
-╔{"═"*page}╗
-║{"Dirtingheim and Dirtingheim Prime":^page}║
-║{"This Monstrosity is a ginormous pile of":<page}║
-║{"dirt with arms and a mouth. It's Prime":<page}║
-║{"varient appears after you kill it once.":<page}║
-║{"coal seems to grow to fill in it's eyes":<page}║
-║{"and this dirty king gets more powerfull":<page}║
-║{"IhateitIhateitIhateitIhateitIhateitIhat":<page}║
-║{"eitIhateitIhateitIhateitIhateitIhateitI":<page}║
-║{" "*page}║
-║{"When against a dirt lord don't use fire":<page}║
-║{"When adainst a dirt lord don;t use fire":<page}║
-║{"When against a dirt lord DON'T USE FIRE":<page}║
-║{"When @g@inst @ dirt lord D0N'T US3 FIR3":<page}║
-║{"Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3":<page}║
-║{" "*page}║
-║{"Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3":<page}║
-║{" "*page}║
-║{"I think I ate a rotten stone berry :(":<page}║
-║{"135-624-532-27-53-327-44":<page}║
-║{"Ugh i don't feel well.":<page}║
-╚{"═"*page}╝""")
+and its coal eyes lit up.""")
+    page("Dirtingheim and Dirtingheim Prime", "This Monstrosity is a ginormous pile of dirt with arms and a mouth. It's Prime varient appears after you kill it once. coal seems to grow to fill in it's eyes and this dirty king gets more powerfull IhateitIhateitIhateitIhateitIhateitIhat eitIhateitIhateitIhateitIhateitIhateitI \n When against a dirt lord don't use fire When adainst a dirt lord don;t use fire When against a dirt lord DON'T USE FIRE When @g@inst @ dirt lord D0N'T US3 FIR3 Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3 \n Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3 I think I ate a rotten stone berry :( \n 135-624-532-27-53-327-44 \n Ugh i don't feel well.")
     ROCKSLIDE.change_accuracy(0.7)
     if input("N3x1...") == "ekUd3On":
         print("The spell you cast caused Dirtingheim to shatter and lose half of his max health")
