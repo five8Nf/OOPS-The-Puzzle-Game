@@ -40,5 +40,6 @@ def page(title, text):
             print(f"║{line.ljust(page_len)}║")
             line = f"{word} "
             line_len = len(word) + 1
+    if line != "":
+        print(f"║{line.ljust(page_len)}║")
     print(f"╚{"═"*page_len}╝")
-
