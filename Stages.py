@@ -6,7 +6,7 @@ from inputimeout import inputimeout, TimeoutOccurred
 from Boss import *
 from Attack_list import *
 from Player import *
-from Strings_to_format import *
+from Ascii_things import *
 
 player = None
 page = 39
@@ -63,44 +63,10 @@ def loading():
 def intro():
     global player
     clear_screen()
-    print(f"""/{"="*56}\\
-||__        __   _                            _         ||
-||\\ \\      / /__| | ___ ___  _ __ ___   ___  | |_ ___   ||
-|| \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ | __/ _ \\  ||
-||  \\ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | ||
-||   \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|  \\__\\___/  ||
-\\{"="*56}/""")
+    print(ascii_text[0])
     sleep(5)
     clear_screen()
-    print(f""">>{"="*69}<<
-|| _________  ___  ___  _______                                        ||
-|||\\___   ___\\\\  \\|\\  \\|\\  ___ \\                                       ||
-||\\|___ \\  \\_\\ \\  \\\\\\  \\ \\   __/|                                      ||
-||     \\ \\  \\ \\ \\   __  \\ \\  \\_|/__                                    ||
-||      \\ \\  \\ \\ \\  \\ \\  \\ \\  \\_|\\ \\                                   ||
-||       \\ \\__\\ \\ \\__\\ \\__\\ \\_______\\                                  ||
-||        \\|__|  \\|__|\\|__|\\|_______|                                  ||
-||                                                                     ||
-||                                                                     ||
-||                                                                     ||
-|| ________  ___  ___  ________  ________  ___       _______           ||
-|||\\   __  \\|\\  \\|\\  \\|\\_____  \\|\\_____  \\|\\  \\     |\\  ___ \\          ||
-||\\ \\  \\|\\  \\ \\  \\\\\\  \\\\|___/  /|\\|___/  /\\ \\  \\    \\ \\   __/|         ||
-|| \\ \\   ____\\ \\  \\\\\  \\   /  / /    /  / /\\ \\  \\    \\ \\  \\_|/__       ||
-||  \\ \\  \\___|\\ \\  \\\\\  \\ /  /_/__  /  /_/__\\ \\  \\____\\ \\  \\_|\\ \\      ||
-||   \\ \\__\\    \\ \\_______\\\\________\\\\________\\ \\_______\\ \\_______\\     ||
-||    \\|__|     \\|_______|\\|_______|\\|_______|\\|_______|\\|_______|     ||
-||                                                                     ||
-||                                                                     ||
-||                                                                     ||
-||                     ________  ________  _____ ______   _______      ||
-||                    |\\   ____\\|\\   __  \\|\\   _ \\  _   \\|\\  ___ \\     ||
-||                    \\ \\  \\___|\\ \\  \\|\\  \\ \\  \\\\\__\\ \\  \\ \\   __/|    ||
-||                     \\ \\  \\  __\\ \\   __  \\ \\  \\\\|__| \\  \\ \\  \\_|/__  ||
-||                      \\ \\  \\|\\  \\ \\  \\ \\  \\ \\  \\    \\ \\  \\ \\  \\_|\\ \\ ||
-||                       \\ \\_______\\ \\__\\ \\__\\ \\__\\    \\ \\__\\ \\_______\\||
-||                        \\|_______|\\|__|\\|__|\\|__|     \\|__|\\|_______|||
->>{"="*69}<<""")
+    print(ascii_text[1])
     sleep(10)
     clear_screen()
     print("The Puzzle Game")
@@ -135,7 +101,7 @@ def room1():
 The damp walls glisten from the light of the small opening above you.
 You tried to remember what had happened but you can't remember anything but this cave. 
 looking around, you see two pathways. One on the left and one on the right. """)
-    to = input("Do you want to go left or right? ").lower()
+    to = input("Do you want to go left or right?").lower()
     while to != "left" and to != "right":
         print(f"{to} is not a valid input")
         input("Next...")
@@ -294,16 +260,7 @@ def left():
     if not "Whammer" in player.inventory.keys():
         print("You go left and enter a dimly lit room. ")
     print("You see two Pathways. One is a purple portal and the other has a sign saying: ")
-    print(f"""/{"="*46}\\
-|| _____ _  _ ___   ___ ___ _____             ||
-|||_   _| || | __| | _ \\_ _|_   _|            ||
-||  | | | __ | _|  |  _/| |  | |              ||
-||  |_| |_||_|___| |_|_|___|_|_|__  __   ___  ||
-|| / _ \\| __| |   \\ / _ \\ / _ \\|  \\/  | (_) \\ ||
-||| (_) | _|  | |) | (_) | (_) | |\\/| |  _ | |||
-|| \\___/|_|   |___/ \\___/ \\___/|_|  |_| (_)| |||
-||                                        /_/ ||
-\\{"="*46}/""")
+    print(ascii_text[2])
     to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
     while not "portal" in to and not "pit of doom" in to:
         print("that is not a valid option")
@@ -425,15 +382,7 @@ You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
     input("Next...")
     player.new_screen()
-    print(""" ____  _      _   _             _          _
-|  _ \\(_)_ __| |_(_)_ __   __ _| |__   ___(_)_ __ ___
-| | | | | '__| __| | '_ \\ / _` | '_ \\ / _ \\ | '_ ` _ \\
-| |_| | | |  | |_| | | | | (_| | | | |  __/ | | | | | |
-|____/|_|_|   \\__|_|_| |_|\\__, |_| |_|\\___|_|_| |_| |_|
-| |__   __ _ ___    __ ___|___/ _____ | | _____ _ __
-| '_ \\ / _` / __|  / _` \\ \\ /\\ / / _ \\| |/ / _ \\ '_ \\
-| | | | (_| \\__ \\ | (_| |\\ V  V / (_) |   <  __/ | | |
-|_| |_|\\__,_|___/  \\__,_| \\_/\\_/ \\___/|_|\\_\\___|_| |_|""")
+    print(ascii_text[3])
     input("Next...")
     dirtingheim = Boss("Dirtingheim", 200, DIRTINGHEIM, player)
     dirtingheim.battle()
@@ -476,18 +425,22 @@ and its coal eyes lit up.
 ║{" "*page}║
 ║{"When against a dirt lord don't use fire":<page}║
 ║{"When adainst a dirt lord don;t use fire":<page}║
-║{"when against a dirt lord DON'T USE FIRE":<page}║
+║{"When against a dirt lord DON'T USE FIRE":<page}║
 ║{"When @g@inst @ dirt lord D0N'T US3 FIR3":<page}║
 ║{"Wh3n @g@1n5t @ d1rt l0rd D0N'T U53 F1r3":<page}║
 ║{" "*page}║
 ║{"Do3u @n@1u5a @ k1ya s0yk K0U'A B53 M1y3":<page}║
 ║{" "*page}║
 ║{"I think I ate a rotten stone berry :(":<page}║
-║{"135-624-532-26-53-327-44":<page}║
+║{"135-624-532-27-53-327-44":<page}║
 ║{"Ugh i don't feel well.":<page}║
 ╚{"═"*page}╝""")
-    input("N3x1...")
-    dirtingheim_prime = Boss("Dirtingheim Prime", 400, DIRTINGHEIM+FIRE, player)
+    ROCKSLIDE.change_accuracy(0.7)
+    if input("N3x1...") == "ekUd3On":
+        print("The spell you cast caused Dirtingheim to shatter and lose half of his max health")
+        dirtingheim_prime = Boss("Dirtingheim Prime", 200, DIRTINGHEIM+FIRE, player)
+    else: 
+        dirtingheim_prime = Boss("Dirtingheim Prime", 400, DIRTINGHEIM+FIRE, player)
     dirtingheim_prime.battle()
     player.add_item("Earth_Stone", 1, DIRTINGHEIM)
     workshop()
@@ -630,15 +583,7 @@ It's the Earth stone.
 and shards of rocks are shot out of the floor impailing absolutely nothing.
 as you fall into the crevice, your Whammer starts to release spores that form a portal
 to a new green land. which you fall head first through before blacking out...""")
-    print(f""".{"-"*40}.
-|               ___  __      __   ___    |
-|                |  /  \\    |__) |__     |
-|                |  \\__/    |__) |___    |
-|                                        |
-| __   __       ___              ___  __ |
-|/  ` /  \\ |\\ |  |  | |\\ | |  | |__  |  \\|
-|\\__, \\__/ | \\|  |  | | \\| \\__/ |___ |__/|
-'{"-"*40}'
+    print(f"""{ascii_text[4]}
 
 
 

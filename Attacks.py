@@ -22,6 +22,9 @@ class Attack():
                 return 0
         return randint(self.min_damage, self.max_damage)
 
+    def change_accuracy(num):
+        self.accuracy = num
+
     def print_phrase(self):
         phrase = ""
         for word in self.phrase:
