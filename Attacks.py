@@ -22,7 +22,7 @@ class Attack():
                 return 0
         return randint(self.min_damage, self.max_damage)
 
-    def change_accuracy(num):
+    def change_accuracy(self, num):
         self.accuracy = num
 
     def print_phrase(self):

@@ -1,10 +1,12 @@
 from Attacks import Attack
 
+NUKE = Attack("Nuke", ["nuked"], 100000, 100000, 1.0)
+
 PUNCH = Attack("Punch", ["punched"], 5, 10, 0.3)
 KICK = Attack("Kick", ["kicked"], 3, 15, 0.2)
 SARCASM = Attack("Sarcasm", ["used sarcasm on"], 1, 100, 0.1)
 
-BASIC = {PUNCH, KICK, SARCASM}
+BASIC = {PUNCH, KICK, SARCASM, NUKE}
 
 BONK = Attack("Bonk", ["bonked"], 10, 15, 0.7)
 TOSS = Attack("Toss", ["Tossed", "their", "whammer", "at"], 15, 20, 0.4)

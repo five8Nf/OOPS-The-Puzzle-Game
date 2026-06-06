@@ -10,7 +10,7 @@ def page(title, text):
         if line_len + len(word) <= page_len:
             line += f"{word}"
             line_len += len(word)
-            if line_len+1 < page_len:
+            if (line_len+1) <= page_len:
                 line += " "
                 line_len += 1
         else:
@@ -33,7 +33,7 @@ def page(title, text):
         elif line_len + len(word) <= page_len:
             line += f"{word}"
             line_len += len(word)
-            if line_len+1 < page_len:
+            if (line_len+1) <= page_len:
                 line += " "
                 line_len += 1
         else:
@@ -43,3 +43,27 @@ def page(title, text):
     if line != "":
         print(f"║{line.ljust(page_len)}║")
     print(f"╚{"═"*page_len}╝")
+
+def sign(sign_len, text):
+    print(f"//{"="*sign_len}\\\\")
+    line_len = 0
+    line = ""
+    new = text.split(" ")
+    for word in new:
+        if word == "\n":
+            print(f"║{line.ljust(sign_len)}║")
+            line = ""
+            line_len = 0
+        elif line_len + len(word) <= sign_len:
+            line += f"{word}"
+            line_len += len(word)
+            if (line_len+1) <= sign_len:
+                line += " "
+                line_len += 1
+        else:
+            print(f"║{line.ljust(sign_len)}║")
+            line = f"{word} "
+            line_len = len(word) + 1
+    if line != "":
+        print(f"║{line.ljust(sign_len)}║")
+    print(f"\\\\{"="*sign_len}//")
