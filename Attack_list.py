@@ -23,16 +23,16 @@ SMALL = {"Handle" : {THROW, POMMEL},
          "Short Stick" : {THROW, SWING}, 
          "Dodecahedron" : {THROW, ROLL}}
 
-SLASH = Attack("Slash", ["slashed", "at"], 20, 30, 0.6)
-STAB = Attack("Stab", ["stabbed"], 20, 25, 0.6)
+SLASH = Attack("Slash", ["slashed", "at"], 30, 40, 0.6)
+STAB = Attack("Stab", ["stabbed"], 30, 45, 0.6)
 
-SHOOT = Attack("Shoot", ["shot", "at"], 23, 35, 0.4)
+SHOOT = Attack("Shoot", ["shot", "at"], 33, 55, 0.4)
 
-WHACK = Attack("Whack", ["whacked"], 20, 25, 0.7)
-JAB = Attack("Jab", ["jabbed", "at"], 15, 30, 0.5)
+WHACK = Attack("Whack", ["whacked"], 30, 45, 0.7)
+JAB = Attack("Jab", ["jabbed", "at"], 25, 40, 0.5)
 
-SWIPE = Attack("Swipe", ["swiped", "at"], 10, 50, 0.4)
-TOSS = Attack("Toss", ["tossed", "Quasirhombicosidodecahedron", "and", "it", "broke", "into", "shards"], 10, 30, 0.8)
+SWIPE = Attack("Swipe", ["swiped", "at"], 20, 60, 0.4)
+TOSS = Attack("Toss", ["tossed", "Quasirhombicosidodecahedron", "and", "it", "broke", "into", "shards"], 20, 40, 0.8)
 
 LARGE = {"Sword" : {SLASH, STAB}, 
          "Bow" : {SHOOT, STAB}, 

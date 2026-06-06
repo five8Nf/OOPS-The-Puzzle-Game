@@ -12,7 +12,7 @@ class Player():
         self.max_hp = 100
         self.hp = 100
         self.name = name
-        self.attacks = {PUNCH, KICK, NUKE}
+        self.attacks = {PUNCH, KICK}
         self.inventory = {"Journal":1}
         if is_sarcastic:
             self.attacks.add(SARCASM)

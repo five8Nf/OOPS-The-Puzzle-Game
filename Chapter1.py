@@ -1,5 +1,5 @@
 import os
-from Stages import *
+from Stages_Chap1 import *
 
 from Player import *
 

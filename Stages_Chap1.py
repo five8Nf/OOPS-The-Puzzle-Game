@@ -29,7 +29,6 @@ def input_sec(text, sec, ans):
     except TimeoutOccurred:
         return False
         
-
 def loading():
     clear_screen()
     print("The Puzzle Game")
@@ -63,10 +62,10 @@ def loading():
 def intro():
     global player
     clear_screen()
-    print(ascii_text[0])
+    print(ascii_text_chap1[0])
     sleep(5)
     clear_screen()
-    print(ascii_text[1])
+    print(ascii_text_chap1[1])
     sleep(10)
     clear_screen()
     print("The Puzzle Game")
@@ -193,7 +192,7 @@ def left():
     if not "Whammer" in player.inventory.keys():
         print("You go left and enter a dimly lit room. ")
     print("You see two Pathways. One is a purple portal and the other has a sign saying: ")
-    print(ascii_text[2])
+    print(ascii_text_chap1[2])
     to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
     while not "portal" in to and not "pit of doom" in to:
         print("that is not a valid option")
@@ -294,7 +293,7 @@ You squint your eyes to protect them from the flying debris.
 But suddenly it stops. """)
     input("Next...")
     player.new_screen()
-    print(ascii_text[3])
+    print(ascii_text_chap1[3])
     input("Next...")
     dirtingheim = Boss("Dirtingheim", 200, DIRTINGHEIM, player)
     dirtingheim.battle()
@@ -449,7 +448,7 @@ It's the Earth stone.
 and shards of rocks are shot out of the floor impailing absolutely nothing.
 as you fall into the crevice, your Whammer starts to release spores that form a portal
 to a new green land. which you fall head first through before blacking out...""")
-    print(f"""{ascii_text[4]}
+    print(f"""{ascii_text_chap1[4]}
 
 
 
