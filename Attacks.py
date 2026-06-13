@@ -13,12 +13,13 @@ class Attack():
         self.roll = 0
 
     def get_damage(self):
+        min_success = 6
         if type(self.accuracy) == float:
             if random() > self.accuracy:
                 return 0
         else:
             self.roll = randint(0, 12)
-            if self.roll < 6:
+            if self.roll < min_success:
                 return 0
         return randint(self.min_damage, self.max_damage)
 

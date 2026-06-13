@@ -1,5 +1,6 @@
-from Attack_list import *
 import os
+
+from attack_list import *
 
 SMALLS = {"Sword" : "Handle", 
           "Bow" : "Thin Stick", 

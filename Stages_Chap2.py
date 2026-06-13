@@ -135,4 +135,4 @@ Ack! Halbert give me back the mic.
     ROCKSLIDE.change_accuracy(0.7)
     player.add_item("Earthstone", 1, DIRTINGHEIM)
     player.new_screen()
-    print("""In the distance,  you see a smoke plume and realise that that is """)
+    print("""In the distance, you see a smoke plume and realise that that is """)

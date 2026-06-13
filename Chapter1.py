@@ -1,7 +1,7 @@
 import os
-from Stages_Chap1 import *
+from stages_chap1 import *
 
-from Player import *
+from player import *
 
 if __name__ == "__main__":
     intro()

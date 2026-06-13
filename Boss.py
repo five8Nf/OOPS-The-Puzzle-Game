@@ -17,7 +17,6 @@ class Boss():
         print(f"""{self.name} HP: {self.health:.1f}/{self.max_health:.1f} ({hp_percent:.1f}%) [{bar}]
     \n============================================================================================\n""")
 
-
 # need to change
     def battle(self):
         turn = 0
@@ -66,7 +65,7 @@ class Boss():
                         except ValueError:
                             print("That is not a number.")
                             continue
-                        if attack <= len(all_attacks):
+                        if 0 < attack <= len(all_attacks):
                             break
                         else:
                             print("That is not a valid number.")

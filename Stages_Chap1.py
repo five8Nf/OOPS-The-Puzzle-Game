@@ -3,23 +3,23 @@ from time import sleep
 from random import randint
 from inputimeout import inputimeout, TimeoutOccurred
 
-from Boss import *
-from Attack_list import *
-from Player import *
-from Ascii_things import *
-from String_formating import *
+from boss import *
+from attack_list import *
+from player import *
+from ascii_things import *
+from string_formating import *
 
 player = None
 
-WEAPONS = {"1":"Sword", 
-           "2":"Bow", 
-           "3":"Staff", 
+WEAPONS = {"1":"Sword",
+           "2":"Bow",
+           "3":"Staff",
            "4":"Quasirhombicosidodecahedron"}
 
 def clear_screen() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
-def input_sec(text, sec, ans):
+def input_for_sec(text, sec, ans):
     try:
         user_input = inputimeout(prompt= text, timeout= sec).lower()
         if user_input != ans:
@@ -28,7 +28,7 @@ def input_sec(text, sec, ans):
             return True
     except TimeoutOccurred:
         return False
-        
+
 def loading():
     clear_screen()
     print("The Puzzle Game")
@@ -70,13 +70,14 @@ def intro():
     clear_screen()
     print("The Puzzle Game")
     name = input("Input 'a name': ")
-    while len(name) > 15:
+    max_len = 15
+    while len(name) > max_len:
         input("Name can only be 15 characters long. ")
         clear_screen()
         name = input("Input 'a name': ")
     if name.lower() == "a name":
         name = input("Good Job! now please input a name for your character: ")
-        while len(name) > 15:
+        while len(name) > max_len:
             input("Name can only be 15 characters long. ")
             clear_screen()
             name = input("Please input a name for your character: ")
@@ -85,7 +86,7 @@ def intro():
         player = Player(name)
     weapon = input("Please input the number of your weapon of choice(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron): ")
     while not weapon in WEAPONS.keys():
-        weapon = input(f"{weapon} not a valid number. Input your choice:(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron):")
+        weapon = input(f"{weapon} not a valid number. Input your choice:(1.Sword, 2.Bow, 3.Staff or 4.Quasirhombicosidodecahedron): ")
     player.weapon_choice(WEAPONS[weapon])
     clear_screen()
     print("The Puzzle Game")
@@ -100,15 +101,15 @@ def room1():
 The damp walls glisten from the light of the small opening above you.
 You tried to remember what had happened but you can't remember anything but this cave. 
 looking around, you see two pathways. One on the left and one on the right. """)
-    to = input("Do you want to go left or right? ").lower()
-    while to != "left" and to != "right":
-        print(f"{to} is not a valid input")
+    go_to = input("Do you want to go left or right? ").lower()
+    while go_to != "left" and go_to != "right":
+        print(f"{go_to} is not a valid input")
         input("Next...")
         clear_screen()
-        to = input("Do you want to go left or right? ")
-    if to == "left":
+        go_to = input("Do you want to go left or right? ").lower()
+    if go_to == "left":
         left()
-    elif to == "right":
+    elif go_to == "right":
         player.new_screen()
         print("You walk right and ", end= "")
         pillar_puzzle()
@@ -123,7 +124,7 @@ The sign reads:""")
     while (not "forward" in ans) and (not "straight" in ans):
         player.lives -= 1
         player.new_screen()
-        print("You hit a pillar and was inpailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
+        print("You hit a pillar and was impailed poisoned, and dissolved by 19 different qualities of the pillars and died. ")
         input("Enter to continue...")
         player.new_screen()
         print("""You walk right and A neyon green sign appears beside you as the door behind you slams shut. 
@@ -131,7 +132,7 @@ The sign reads: """)
         sign(35, "You have reached the Pillar Puzzle! You need to get past the pillars! Warning Pillars are Poisonous, Spiky,Deadly, Unbreakable, Venemous Toxic, Acid Proof and covered with Acids such as HSbF2, HBR, HF, HI, HCIO4, H2SO4, HNO3, CISO3H, HCI, HBr, HCN and HCF3SO3.")
         print("You look ahead serching for the pillars but you see nothing but pitch black drarkness.")
         if player.lives == 0:
-            ans = input("you Feel O sliRht sensation tugging you. WhAt Ro you want to Do:")
+            ans = input("you Feel O sliRht sensation tugging you. WhAt Ro you want to Do:").lower()
         else:
             ans = input("Input what you want to do:").lower()
     Whammer()
@@ -181,7 +182,7 @@ Behind you, you see a wall of scales.
 There are dark red words floating in the sky. 
 They read: "This room is the path on the left. 
 You cannot go back as there is a wall of impenetrable scales. 
-Nobody but someone who can walk through walls can break through. " """)
+No one, not even a creature who can walk through walls can break through. " """)
     input("Next...")
     left()
 
@@ -193,15 +194,15 @@ def left():
         print("You go left and enter a dimly lit room. ")
     print("You see two Pathways. One is a purple portal and the other has a sign saying: ")
     print(ascii_text_chap1[2])
-    to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
-    while not "portal" in to and not "pit of doom" in to:
+    go_to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
+    while not "portal" in go_to and not "pit of doom" in go_to:
         print("that is not a valid option")
         input("Next...")
         player.new_screen()
-        to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
-    if "portal" in to:
+        go_to = input("Do you want to go into the portal or THE PIT OF DOOM :): ").lower()
+    if "portal" in go_to:
         portal()
-    elif "pit of doom" in to:
+    elif "pit of doom" in go_to:
         pit_of_doom()
 
 def portal():
@@ -258,12 +259,12 @@ underground.""")
     else:
         ans = "C"
     ans += str(randint(1, 3))
-    accepted = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
-    selected = input(" Input a square to hit e.g. A1, B2, C3: ").upper()
-    while not selected in accepted:
-        selected = input(" Input a square to hit e.g. A1, B2, C3: ").upper()
-    accepted.remove(selected)
-    while selected != ans:
+    possible_selection = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+    player_selection = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+    while not player_selection in possible_selection:
+        player_selection = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+    possible_selection.remove(player_selection)
+    while player_selection != ans:
         if randint(1, 3) != 1:
             print("You got some Stone Berrys.")
             player.add_item("Stone Berry", randint(1, 2))
@@ -272,10 +273,10 @@ underground.""")
             player.add_item("Wushroom", randint(1, 5))
         input("Next...")
         player.new_screen()
-        selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
-        while not selected in accepted:
-            selected = input("Input a square to hit e.g. A1, B2, C3: ").upper()
-        accepted.remove(selected)
+        player_selection = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+        while not player_selection in possible_selection:
+            player_selection = input("Input a square to hit e.g. A1, B2, C3: ").upper()
+        possible_selection.remove(player_selection)
     print(f"You got a {player.small_weapon}")
     player.add_item(player.small_weapon, 1, SMALL[player.small_weapon])
     input("next...")
@@ -407,17 +408,17 @@ The dagger flies straight towards the Man but stops and clatters to the ground."
     for _ in range(randint(5, 15)):
         num = randint(1, 50)
         if num == 50:
-            if input_sec("Goose ", randint(4, 5), "goose"):
+            if input_for_sec("Goose ", randint(4, 5), "goose"):
                 continue
         elif num % 2:
-            if input_sec("Duck ", randint(4, 5), "duck"):
+            if input_for_sec("Duck ", randint(4, 5), "duck"):
                 print("Ducks fall from the sky")
                 continue
         elif num % 3:
-            if input_sec("Jump ", randint(4, 5), "jump"):
+            if input_for_sec("Jump ", randint(4, 5), "jump"):
                 continue
         else:
-            if input_sec("Dodge ", randint(4, 5), "dodge"):
+            if input_for_sec("Dodge ", randint(4, 5), "dodge"):
                 continue
         print("You hit something in the room")
         input("Next...")

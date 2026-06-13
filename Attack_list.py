@@ -1,4 +1,4 @@
-from Attacks import Attack
+from attacks import Attack
 
 NUKE = Attack("Nuke", ["nuked"], 100000, 100000, 1.0)
 
@@ -16,7 +16,7 @@ THROW = Attack("Throw", ["threw",  "their", "weapon", "at"], 15, 20, 0.4)
 POMMEL = Attack("Pommel Hit", ["hit", "with", "pommel"], 10, 17, 0.75)
 WHACK = Attack("Whack", ["whacked"], 10, 17, 0.75)
 SWING = Attack("Swing", ["swung", "short", "branch", "at"], 10, 17, 0.75)
-ROLL = Attack("Roll D12", ["rolled", "a", "NUMBER", "attacking"],8 ,20 , "A roll from 1 to 12")
+ROLL = Attack("Roll D12", ["rolled", "a", "NUMBER", " attacking"],8 ,20 , "A roll from 1 to 12")
 
 SMALL = {"Handle" : {THROW, POMMEL}, 
          "Thin Stick" : {THROW, WHACK}, 
@@ -28,7 +28,7 @@ STAB = Attack("Stab", ["stabbed"], 30, 45, 0.6)
 
 SHOOT = Attack("Shoot", ["shot", "at"], 33, 55, 0.4)
 
-WHACK = Attack("Whack", ["whacked"], 30, 45, 0.7)
+BLUDGEON = Attack("Bludgeon", ["bludgeoned"], 30, 45, 0.7)
 JAB = Attack("Jab", ["jabbed", "at"], 25, 40, 0.5)
 
 SWIPE = Attack("Swipe", ["swiped", "at"], 20, 60, 0.4)
@@ -36,7 +36,7 @@ TOSS = Attack("Toss", ["tossed", "Quasirhombicosidodecahedron", "and", "it", "br
 
 LARGE = {"Sword" : {SLASH, STAB}, 
          "Bow" : {SHOOT, STAB}, 
-         "Staff" : {WHACK, JAB}, 
+         "Staff" : {BLUDGEON, JAB}, 
          "Quasirhombicosidodecahedron" : {SWIPE, TOSS}}
 
 FLAME_THROWER = Attack("Flame Thrower", ["threw", "flames", "at"], 25, 50, 0.5)
