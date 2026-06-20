@@ -30,34 +30,16 @@ def input_for_sec(text, sec, ans):
         return False
 
 def loading():
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world.")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world..")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world...")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world..")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world.")
-    sleep(1)
-    clear_screen()
-    print("The Puzzle Game")
-    print("Loading world")
-    sleep(1)
+    x = 0
+    change = 1
+    for _ in range(7):
+        clear_screen()
+        print("The Puzzle Game")
+        print(f"Loading world{"."*x}")
+        sleep(0.5)
+        x += change
+        if x == 3:
+            change = -1
 
 def intro():
     global player

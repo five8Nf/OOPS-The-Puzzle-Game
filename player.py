@@ -30,7 +30,7 @@ class Player():
             self.inventory[item] += quantity
         else:
             self.inventory[item] = quantity
-        if new_attacks != None:
+        if new_attacks is not None:
             self.attacks = self.attacks | new_attacks
     
     def remove_item(self, item):

@@ -1,9 +1,12 @@
 1. say why the boss feature impressed me
-surprised on how long the code ended up being
+surprised on how simple the battling feature ended up as it took way shorter that the half-made code for the
+fake pokemon project
 
 2. why the boss feature could be better
-I feel like it was heavily unoptimised, especially the part where players pick the item to use.
+I feel like it was heavily unoptimised, especially the part where players pick the item to use as it simply
+used a lot of if elif else statements 
 
 3. the boss's loop did not work well
-One of the errors that i faced was the first loop for the player as i wanted the player to be able
-to eat as much as they wanted.
+One of the errors that i faced was the first loop for the player as i wanted the player to be able to eat as
+much items as they wanted the player either went an infinite amout of turns, killed the boss and did not exit
+or just skip all of the player's turns.
