@@ -1,6 +1,9 @@
 1. say why the boss feature impressed me
-surprised on how long the code had to be
+surprised on how long the code ended up being
 
 2. why the boss feature could be better
+I feel like it was heavily unoptimised, especially the part where players pick the item to use.
 
 3. the boss's loop did not work well
+One of the errors that i faced was the first loop for the player as i wanted the player to be able
+to eat as much as they wanted.
